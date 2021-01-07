@@ -30,4 +30,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(WorkoutContainer)
+export default connect(mapStateToProps)(WorkoutContainer) //connecting a comp gives dispatch
