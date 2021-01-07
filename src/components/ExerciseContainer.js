@@ -8,13 +8,13 @@ class ExerciseContainer extends Component {
 
   render() {
 
-    const exercises = this.props.exercises.map((exer, index) => {
-      return <li key={index}>{exercises.name}</li>
-    })
+    // const exercises = this.props.exercises.map((exercises, index) => {
+    //   return <li key={index}>{exercises.name}</li>
+    // })
 
     return (
       <div className="Exercises">
-          <ul>{ this.props.loading ? <h3>Loading...</h3> : exercises }</ul>
+          {/* <ul>{ this.props.loading ? <h3>Loading...</h3> : exercises }</ul> */}
       </div>
     )
   }
