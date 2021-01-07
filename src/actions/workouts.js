@@ -1,6 +1,7 @@
 //action object creator function
 
 export const getWorkouts = () => {
+    debugger
     return dispatch => {
         dispatch({type: "LOADING_WORKOUTS"})
         fetch("http://localhost:3001/api/v1/workouts")

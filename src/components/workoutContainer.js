@@ -5,6 +5,10 @@ import { getWorkouts } from '../actions/workouts'
 
 class WorkoutContainer extends Component {
   //never arrow fct for performace
+  componentDidMount(){
+      debugger
+      this.props.getWorkouts()
+  }
 
   render() {
     console.log(this.props)
