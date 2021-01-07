@@ -1,13 +1,14 @@
 //working with redux in this component, making it class based
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
+import { getWorkouts } from '../actions/workouts'
 
 class WorkoutContainer extends Component {
   //never arrow fct for performace
 
   render() {
-
-    const workouts = this.props.workouts.map((wo, index) => {
+    console.log(this.props)
+    const workouts = this.props.workouts.map((workouts, index) => {
       return <li key={index}>{workouts.title}</li>
     })
 
@@ -21,7 +22,6 @@ class WorkoutContainer extends Component {
 //shop at teh state store and 
 //structure what our props look like
 const mapStateToProps = state => {
-  console.log(state)
   return {
     workouts: state.workoutReducer.workouts, //found in reducer
     loading: state.workoutReducer.loading,
@@ -30,4 +30,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(WorkoutContainer) //connecting a comp gives dispatch
+export default connect(mapStateToProps, { getWorkouts })(WorkoutContainer) //connecting a comp gives dispatch
