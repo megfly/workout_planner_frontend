@@ -3,6 +3,6 @@ export const getExercises = () => {
         dispatch({type: "LOADING_EXERCISES"})
         fetch("http://localhost:3001/api/v1/exercises")
         .then(res => res.json())
-        .then(exercises => dispatch({type: "WORKOUTS_EXERCISES", payload: exercises}))
+        .then(exercises => dispatch({type: "EXERCISES_LOADED", payload: exercises}))
     }
 }

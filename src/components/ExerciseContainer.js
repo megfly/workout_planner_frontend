@@ -1,6 +1,7 @@
 //working with redux in this component, making it class based
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
+import { getExercises } from '../actions/exercises'
 
 class ExerciseContainer extends Component {
   //never arrow fct for performace
@@ -30,4 +31,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(ExerciseContainer)
+export default connect(mapStateToProps, { getExercises })(ExerciseContainer)
