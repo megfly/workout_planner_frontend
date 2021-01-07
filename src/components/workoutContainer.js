@@ -6,19 +6,20 @@ import { getWorkouts } from '../actions/workouts'
 class WorkoutContainer extends Component {
   //never arrow fct for performace
   componentDidMount(){
-      debugger
       this.props.getWorkouts()
   }
 
   render() {
     console.log(this.props)
-    const workouts = this.props.workouts.map((workouts, index) => {
-      return <li key={index}>{workouts.title}</li>
+// debugger 
+    const workouts = this.props.workouts.map((workout, index) => {
+        return <li key={index}>{workout.attributes.title}</li>
     })
+     
 
     return (
       <div className="Workouts"> 
-         <ul>{ this.props.loading ? <h3>Loading...</h3> : workouts }</ul>
+         {workouts}
       </div>
     )
   }
@@ -26,6 +27,7 @@ class WorkoutContainer extends Component {
 //shop at teh state store and 
 //structure what our props look like
 const mapStateToProps = state => {
+    //debugger 
   return {
     workouts: state.workoutReducer.workouts, //found in reducer
     loading: state.workoutReducer.loading,

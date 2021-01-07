@@ -1,12 +1,16 @@
 //action object creator function
 
 export const getWorkouts = () => {
-    debugger
+    
     return dispatch => {
         dispatch({type: "LOADING_WORKOUTS"})
-        fetch("http://localhost:3001/api/v1/workouts")
+        fetch("http://localhost:3000/api/v1/workouts")
         .then(res => res.json())
-        .then(workouts => dispatch({type: "WORKOUTS_LOADED", payload: workouts}))
+        .then(workouts => {
+            //debugger
+            dispatch({type: "WORKOUTS_LOADED", payload: workouts.data}) //payload: workouts.data}
+            })
+            
     }
 }
 //2 dispatches when working w thunk.. return a function.. two dispatches
