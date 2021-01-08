@@ -25,7 +25,7 @@ class WorkoutForm extends Component {
     // }
 
     handleTitleInputChange = (event) => {
-        console.log(event.target.value)
+       // console.log(event.target.value)
   
         this.setState({
             title: event.target.value
@@ -33,7 +33,7 @@ class WorkoutForm extends Component {
     }
 
     handleDurationInputChange = (event) => {
-        console.log(event.target.value)
+        //console.log(event.target.value)
   
         this.setState({
             duration: event.target.value
@@ -41,8 +41,8 @@ class WorkoutForm extends Component {
     }
 
     handleDateInputChange = (event) => {
-        debugger
-        console.log(event)
+        //debugger
+        //console.log(event)
   
         this.setState({
             date: event
@@ -69,7 +69,7 @@ class WorkoutForm extends Component {
       }
 
     render() {
-        console.log("form", this.state)
+      //  console.log("form", this.state)
         return (
             <form onSubmit={this.handleOnSubmit}>
                 <p>

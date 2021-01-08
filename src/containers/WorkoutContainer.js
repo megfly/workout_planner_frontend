@@ -11,12 +11,12 @@ class WorkoutContainer extends Component {
   }
 
   render() {
-    console.log("workout container props is", this.props)
+    //console.log("workout container props is", this.props)
  //debugger 
     const workoutList = this.props.workouts.map((workout, index) => {
         return <WorkoutDisplay 
-          // key={workout.id}
-          key={index}
+          key={workout.id}
+          //key={index}
           title={workout.attributes.title}
           duration={workout.attributes.duration}
           date={workout.attributes.date}
