@@ -29,7 +29,7 @@ class App extends Component {
         <h2>Create Workout</h2>
           <WorkoutForm />
           <WorkoutContainer />
-          <br /> <br /> <br />
+          <br /> <br /> 
           <Calendar 
             onChange={this.handleOnChange}
             value={this.state.date}
