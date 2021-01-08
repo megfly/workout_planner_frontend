@@ -7,6 +7,17 @@ import ExerciseContainer from './components/ExerciseContainer'
 
 class App extends Component {
   //never arrow fct for performace
+  state = {
+    date: new Date(),
+    //date: ''
+  }
+
+  handleOnChange = (event) => {
+    console.log(event)
+    this.setState({ 
+      date: event.target
+    });
+  }
 
   render() {
 
@@ -15,7 +26,10 @@ class App extends Component {
         <header className="App-header">
           <h3>Workout Planner</h3>
         </header>
-          <Calendar />
+          <Calendar 
+            onChange={this.handleOnChange}
+            value={this.state.date}
+          />
           <WorkoutContainer />
           <ExerciseContainer />
       </div>
