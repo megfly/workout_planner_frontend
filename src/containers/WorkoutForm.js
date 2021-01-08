@@ -12,9 +12,38 @@ class WorkoutForm extends Component {
         date: ""
     }
 //when were working with local state and we want to  change that state and we arent using hooks wwe all set state
-    handleInputChange = (event) => {
+    // handleInputChange = (event) => {
+    //     console.log(event.target.value)
+    
+    //     const name = event.target.name;
+    //     const value = event.target.value
+
+    //     this.setState({
+    //         [name]: value,
+    //     })
+    // }
+
+    handleTitleInputChange = (event) => {
+        console.log(event.target.value)
+  
         this.setState({
-            [event.target.id]: event.target.value
+            title: event.target.value
+        })
+    }
+
+    handleDurationInputChange = (event) => {
+        console.log(event.target.value)
+  
+        this.setState({
+            duration: event.target.value
+        })
+    }
+
+    handleDateInputChange = (event) => {
+        console.log(event.target.value)
+  
+        this.setState({
+            date: event.target.value
         })
     }
 
@@ -26,7 +55,7 @@ class WorkoutForm extends Component {
             duration: this.state.duration, 
             date: this.state.date
         }
-        //addworkout needs information... go into props and pull function and give it the workout
+        //addworkout needs information... go into props and pull function and give it the
         this.props.addWorkout(workout)
         //since supressing default behavior we need to claer out the form by updateing dstate
         this.setState({
@@ -34,17 +63,20 @@ class WorkoutForm extends Component {
             duration: "",
             date: ""
         })
+        console.log("handleonsumb", this.state)
       }
 
     render() {
+        console.log("form", this.state)
         return (
             <form onSubmit={this.handleOnSubmit}>
                 <p>
                     <input
                         type="text"
                         id="workout-title"
+                        name="workout-title"
                         placeholder="Workout Name..."
-                        onChange={this.handleInputChange}
+                        onChange={this.handleTitleInputChange} 
                         value={this.state.title}
                     />
                 </p>
@@ -52,17 +84,19 @@ class WorkoutForm extends Component {
                     <input 
                         type="text"
                         id="workout-duration"
+                        name="workout-duration"
                         placeholder="Workout Duration..."
-                        onChange={this.handleInputChange}
+                        onChange={this.handleDurationInputChange}
                         value={this.state.duration}
                     />
                 </p>
                 <p>
                     <input 
                         type="text"
-                        id="date"
+                        id="workout-date"
+                        name="workout-date"
                         placeholder="Workout Date..."
-                        onChange={this.handleInputChange}
+                        onChange={this.handleDateInputChange}
                         value={this.state.date}
                     />
                 </p>
