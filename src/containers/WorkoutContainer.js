@@ -10,7 +10,7 @@ class WorkoutContainer extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log("workout container props is", this.props)
 // debugger 
     const workouts = this.props.workouts.map((workout, index) => {
         return <li key={index}>{workout.attributes.title}</li>
@@ -18,8 +18,9 @@ class WorkoutContainer extends Component {
      
 
     return (
-      <div className="Workouts"> 
-         {workouts}
+      <div className="Workouts">
+        
+          {workouts}
       </div>
     )
   }

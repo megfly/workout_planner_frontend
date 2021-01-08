@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import './App.css';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import WorkoutContainer from './components/WorkoutContainer'
-import ExerciseContainer from './components/ExerciseContainer'
+import WorkoutContainer from './containers/WorkoutContainer'
 
 class App extends Component {
   //never arrow fct for performace
@@ -31,7 +30,7 @@ class App extends Component {
             value={this.state.date}
           />
           <WorkoutContainer />
-          <ExerciseContainer />
+          
       </div>
     )
   }
