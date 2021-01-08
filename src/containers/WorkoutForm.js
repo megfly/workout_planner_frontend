@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addWorkout } from '../actions/workouts' //need to hit reducer, adding to props
+import DatePicker from 'react-date-picker'
 
 class WorkoutForm extends Component {
     //need global and local state so we can have controlled form
@@ -9,7 +10,7 @@ class WorkoutForm extends Component {
     state = {
         title: "",
         duration: "",
-        date: ""
+        date: new Date()
     }
 //when were working with local state and we want to  change that state and we arent using hooks wwe all set state
     // handleInputChange = (event) => {
@@ -40,10 +41,11 @@ class WorkoutForm extends Component {
     }
 
     handleDateInputChange = (event) => {
-        console.log(event.target.value)
+        debugger
+        console.log(event)
   
         this.setState({
-            date: event.target.value
+            date: event
         })
     }
 
@@ -91,14 +93,18 @@ class WorkoutForm extends Component {
                     />
                 </p>
                 <p>
-                    <input 
+                <DatePicker
+                    onChange={this.handleDateInputChange}
+                    value={this.state.date}
+                    />
+                    {/* <input 
                         type="text"
                         id="workout-date"
                         name="workout-date"
                         placeholder="Workout Date..."
                         onChange={this.handleDateInputChange}
                         value={this.state.date}
-                    />
+                    /> */}
                 </p>
                 <input type="submit" />
             </form>
