@@ -2,6 +2,7 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { getWorkouts } from '../actions/workouts'
+import WorkoutDisplay from '../components/WorkoutDisplay'
 
 class WorkoutContainer extends Component {
   //never arrow fct for performace
@@ -11,19 +12,28 @@ class WorkoutContainer extends Component {
 
   render() {
     console.log("workout container props is", this.props)
-// debugger 
-    const workouts = this.props.workouts.map((workout, index) => {
-        return <li key={index}>{workout.attributes.title}</li>
+ //debugger 
+    const workoutList = this.props.workouts.map((workout, index) => {
+        return <WorkoutDisplay 
+          // key={workout.id}
+          key={index}
+          title={workout.attributes.title}
+          duration={workout.attributes.duration}
+          date={workout.attributes.date}
+        />
+        // <li key={index}>{workout.attributes.title}</li>
+        
     })
      
 
     return (
       <div className="Workouts">
-        
-          {workouts}
+          {/* <WorkoutDisplay workoutList={workoutList} /> */}
+          {workoutList}
       </div>
     )
-  }
+
+   }
 }
 //shop at teh state store and 
 //structure what our props look like

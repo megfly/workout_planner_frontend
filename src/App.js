@@ -27,12 +27,13 @@ class App extends Component {
           <h3>Workout Planner</h3>
         </header>
         <h2>Create Workout</h2>
-        <WorkoutForm />
+          <WorkoutForm />
+          <WorkoutContainer />
+          <br /> <br /> <br />
           <Calendar 
             onChange={this.handleOnChange}
             value={this.state.date}
           />
-          <WorkoutContainer />
           
       </div>
     )
