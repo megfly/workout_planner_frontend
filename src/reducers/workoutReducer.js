@@ -7,6 +7,13 @@ export default (state = {workouts: [], loading: false}, action) => { //always mu
                 loading: false,
                 workouts: action.payload
             }
+        case("ADDING_WORKOUT"):
+            return {...state, loading: true}
+        case("WORKOUT_ADDED"):
+            return {...state, 
+                loading: false,
+                workouts: [...state.workouts, action.payload]
+            }
         default: 
             return state
     }
