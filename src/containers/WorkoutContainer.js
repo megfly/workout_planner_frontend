@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { getWorkouts } from '../actions/workouts'
 import WorkoutDisplay from '../components/WorkoutDisplay'
 //import CalendarDisplay from '../components/CalendarDisplay'
+import { addExercise } from '../actions/exercises'
 
 class WorkoutContainer extends Component {
   //never arrow fct for performace
@@ -18,9 +19,11 @@ class WorkoutContainer extends Component {
         return <WorkoutDisplay 
           key={workout.id}
           //key={index}
+          id={workout.id}
           title={workout.attributes.title}
           duration={workout.attributes.duration}
           date={workout.attributes.date}
+          handleAddExercise={this.props.addExercise}
         />
     })
 
@@ -57,4 +60,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getWorkouts })(WorkoutContainer) //connecting a comp gives dispatch
+export default connect(mapStateToProps, { getWorkouts, addExercise })(WorkoutContainer) //connecting a comp gives dispatch
