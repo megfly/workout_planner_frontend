@@ -127,27 +127,14 @@ class CalendarDisplay extends Component {
 
         //match the calendar state date with this.props.workouts.attributes.date
         let calendarClick = this.state 
-
         console.log("this is state", this.state)
-         
-
+        
    
         //filter data per date clicked?
 
         console.log("this is props", this.props.workouts)
        // console.log("this is workoutresults", workoutResults)
 
-  
-
-    // const filteredResults = this.props.workout.map((workout, index) => {
-    //     debugger
-    //     return <WorkoutDisplay 
-    //       key={workout.id}
-    //       title={workout.attributes.title}
-    //       duration={workout.attributes.duration}
-    //       date={workout.attributes.date}
-    //     />
-    // })
     }
 
     render() {
@@ -167,7 +154,7 @@ class CalendarDisplay extends Component {
                     onChange={this.onSelect}
                     value={this.state.date}
                 /> 
-                {/* {workoutResults} */}
+                {workoutResults}
             </div>
         )
     }
