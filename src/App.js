@@ -5,6 +5,7 @@ import './App.css';
 import WorkoutContainer from './containers/WorkoutContainer'
 import WorkoutForm from './containers/WorkoutForm';
 import CalendarDisplay from './components/CalendarDisplay'
+import WorkoutDisplay from './components/WorkoutDisplay';
 
 class App extends Component {
   //never arrow fct for performace
@@ -29,6 +30,7 @@ class App extends Component {
         </header>
         <h2>Create Workout</h2>
           <WorkoutForm />
+          {/* <WorkoutDisplay /> */}
           <WorkoutContainer />
           <br /> <br /> 
           {/* <Calendar 
