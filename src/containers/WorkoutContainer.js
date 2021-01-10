@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { getWorkouts } from '../actions/workouts'
 import WorkoutDisplay from '../components/WorkoutDisplay'
-import CalendarDisplay from '../components/CalendarDisplay'
+//import CalendarDisplay from '../components/CalendarDisplay'
 
 class WorkoutContainer extends Component {
   //never arrow fct for performace
@@ -14,16 +14,15 @@ class WorkoutContainer extends Component {
   render() {
     //console.log("workout container props is", this.props)
  //debugger 
-    // const workoutList = this.props.workouts.map((workout, index) => {
-    //     return <WorkoutDisplay 
-    //       key={workout.id}
-    //       //key={index}
-    //       title={workout.attributes.title}
-    //       duration={workout.attributes.duration}
-    //       date={workout.attributes.date}
-    //     />
-    //     // <li key={index}>{workout.attributes.title}</li>
-    // })
+    const workoutList = this.props.workouts.map((workout, index) => {
+        return <WorkoutDisplay 
+          key={workout.id}
+          //key={index}
+          title={workout.attributes.title}
+          duration={workout.attributes.duration}
+          date={workout.attributes.date}
+        />
+    })
 
     // const workoutPropsForCalendar = this.props.workouts.map((workout, index) => {
     //   return <CalendarDisplay 
@@ -39,7 +38,7 @@ class WorkoutContainer extends Component {
     return (
       <div className="Workouts">
           {/* <WorkoutDisplay workoutList={workoutList} /> */}
-          {/* {workoutList} */}
+          {workoutList}
           {/* {workoutPropsForCalendar} */}
       </div>
     )
