@@ -58,7 +58,7 @@ class CalendarDisplay extends Component {
                         onChange={this.onSelect}
                         value={this.state.date}
                     />
-                    {workoutResults}
+                    {/* {workoutResults} */}
                     </div>
             )
         }
