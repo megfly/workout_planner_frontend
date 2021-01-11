@@ -31,6 +31,26 @@ export const addWorkout = (workout) => {
             })    
     }
 }
+
+//passing it workout info
+export const deleteWorkout = (id) => { 
+    return dispatch => {
+        dispatch({type: "DELETING_WORKOUT"})
+        fetch(`http://localhost:3001/api/v1/workouts/${id}`, {
+            method: "DELETE",
+            body: JSON.stringify(id),
+            headers: {
+                'Content-Type': 'application/json',
+                "Accept": 'application/json'
+            }
+        })
+      
+        .then(() => {
+            //debugger
+            dispatch({type: "WORKOUT_DELETED", payload: id}) //payload: workouts.data}
+            })    
+    }
+}
 //2 dispatches when working w thunk.. return a function.. two dispatches
 //dispatch is how you send yoru actions to the reducer
 //dispatch is from props when connected
