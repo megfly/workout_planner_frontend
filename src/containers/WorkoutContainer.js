@@ -2,13 +2,31 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { getWorkouts, deleteWorkout } from '../actions/workouts'
+import { addExercise } from '../actions/exercises'
 import WorkoutDisplay from '../components/WorkoutDisplay'
+import ExerciseForm from './ExerciseForm'
+import AddExerciseButton from '../components/AddExerciseButton'
 
 //import CalendarDisplay from '../components/CalendarDisplay'
 //import { addExercise } from '../actions/exercises'
 
 class WorkoutContainer extends Component {
   //never arrow fct for performace
+  //https://flaviocopes.com/react-show-different-component-on-click/
+  constructor(props) {
+    super()
+    this.state = { isEmptyState: true}
+  }
+
+  triggerAddExerciseState = () => {
+    this.setState({
+      ...this.state,
+      isEmptyState: false,
+      isAddExerciseState: true
+    })
+  }
+
+
   componentDidMount(){
       this.props.getWorkouts()
   }
@@ -16,6 +34,10 @@ class WorkoutContainer extends Component {
   handleDeleteWorkout = (event) => {
     event.preventDefault()
     this.props.deleteWorkout(event.target.id)
+  }
+
+  handleAddExercise = (event) => {
+    debugger
   }
 
   render() {
@@ -30,6 +52,11 @@ class WorkoutContainer extends Component {
           duration={workout.attributes.duration}
           date={workout.attributes.date}
           handleDeleteWorkout={this.props.deleteWorkout}
+          handleAddExercise={this.props.handleAddExercise}
+          triggerAddExerciseState={this.state}
+
+          //addExercise={this.triggerAddExerciseState}
+          // handleAddExercise={this.props.addExercise}
         />
     })
 
@@ -46,12 +73,17 @@ class WorkoutContainer extends Component {
 
     return (
       <div className="Workouts">
+        
+        {/* <AddExerciseButton addExercise={this.triggerAddExerciseState} /> */}
           {/* <WorkoutDisplay workoutList={workoutList} /> */}
           {workoutList}
           {/* {workoutPropsForCalendar} */}
+      {this.state.isEmptyState && <AddExerciseButton addExercise={this.triggerAddExerciseState} />}
+  
+      {this.state.isAddExerciseState && <ExerciseForm />}
       </div>
+        
     )
-
    }
 }
 //shop at teh state store and 
@@ -66,5 +98,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getWorkouts, deleteWorkout })(WorkoutContainer) //connecting a comp gives dispatch
+export default connect(mapStateToProps, { getWorkouts, deleteWorkout, addExercise })(WorkoutContainer) //connecting a comp gives dispatch
 //addExercise
