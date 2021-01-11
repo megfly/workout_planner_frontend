@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
+import AddExerciseButton from './AddExerciseButton';
 
 // import {
 //     BrowserRouter as Router,
@@ -10,7 +11,8 @@ import { Button } from 'react-bootstrap';
 //     useParams
 //   } from "react-router-dom";
 
-export default function WorkoutDisplay(props, {addExercise} ) {
+export default function WorkoutDisplay(props) {
+    //{ addExercise } 
     //console.log("props is workoutdisplay", props)
 //debugger
     // handleClick = (event) => {
@@ -19,11 +21,20 @@ export default function WorkoutDisplay(props, {addExercise} ) {
 //    debugger
 console.log("props is", props)
     return ( 
+
         <div className="workout-display">
             {/* <li>{props}</li> */}
             <ul>
            <h4>{props.title}</h4>
            {props.duration} {props.date}
+
+           <AddExerciseButton 
+                workoutId={props.id}
+                type="button"
+                handleAddExercise={props.handleAddExercise}
+                // onClick={() => props.handleAddExercise(props.workoutId)}
+                addExercise={props.triggerAddExerciseState} />
+
      
            <Button 
                 type="button"
@@ -37,6 +48,7 @@ console.log("props is", props)
                 
                 >Delete
            </Button> 
+
             </ul>
         </div>
     )
