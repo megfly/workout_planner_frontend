@@ -1,4 +1,4 @@
-export default (state = {workouts: [], loading: false}, action) => { //always must return state
+export default (state = {exercises: [], loading: false}, action) => { //always must return state
     switch(action.type){
         case("LOADING_EXERCISES"):
             return {...state, loading: true}
@@ -7,6 +7,13 @@ export default (state = {workouts: [], loading: false}, action) => { //always mu
                 loading: false,
                 workouts: action.payload
             }
+        // case("ADDING_EXERCISE"):
+        //     return {...state, loading: true}
+        // case("EXERCISE_ADDED"):
+        //     return {...state, 
+        //         loading: false,
+        //         workouts: [...state.workouts, action.payload]
+        //     }
         default: 
             return state
     }
