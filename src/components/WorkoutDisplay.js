@@ -13,9 +13,9 @@ import { Button } from 'react-bootstrap';
 export default function WorkoutDisplay(props) {
     //console.log("props is workoutdisplay", props)
 //debugger
-    handleClick = (event) => {
-        this
-    }
+    // handleClick = (event) => {
+    //     this
+    // }
 
     return ( 
         <div className="workout-display">
