@@ -73,7 +73,6 @@ class WorkoutContainer extends Component {
 
     return (
       <div className="Workouts">
-        
         {/* <AddExerciseButton addExercise={this.triggerAddExerciseState} /> */}
           {/* <WorkoutDisplay workoutList={workoutList} /> */}
           {workoutList}
