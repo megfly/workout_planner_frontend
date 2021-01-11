@@ -10,12 +10,13 @@ import { Button } from 'react-bootstrap';
 //     useParams
 //   } from "react-router-dom";
 
-export default function WorkoutDisplay(props) {
+export default function WorkoutDisplay(props, {addExercise} ) {
     //console.log("props is workoutdisplay", props)
 //debugger
     // handleClick = (event) => {
     //     this
     // }
+   // debugger
 
     return ( 
         <div className="workout-display">
@@ -28,7 +29,9 @@ export default function WorkoutDisplay(props) {
                 type="button"
                 className="btn btn-danger"
                 variant="primary"
-                onClick={() => props.handleAddExercise(props.workout.id)}
+                // onClick={() => props.handleAddExercise(props.id)}
+
+                onClick={() => addExercise(props.id)}
                 
                 >Add Exercise
            </Button> 
