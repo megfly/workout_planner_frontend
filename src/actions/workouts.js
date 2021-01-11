@@ -3,7 +3,7 @@
 export const getWorkouts = () => { 
     return dispatch => {
         dispatch({type: "LOADING_WORKOUTS"})
-        fetch("http://localhost:3000/api/v1/workouts")
+        fetch("http://localhost:3001/api/v1/workouts")
         .then(res => res.json())
         .then(workouts => {
             //debugger
@@ -16,7 +16,7 @@ export const getWorkouts = () => {
 export const addWorkout = (workout) => { 
     return dispatch => {
         dispatch({type: "ADDING_WORKOUT"})
-        fetch("http://localhost:3000/api/v1/workouts", {
+        fetch("http://localhost:3001/api/v1/workouts", {
             method: "POST",
             body: JSON.stringify(workout),
             headers: {
