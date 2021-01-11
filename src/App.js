@@ -6,6 +6,7 @@ import WorkoutContainer from './containers/WorkoutContainer'
 import WorkoutForm from './containers/WorkoutForm';
 import CalendarDisplay from './components/CalendarDisplay'
 import ExerciseContainer from './containers/ExerciseContainer';
+import ExerciseForm from './containers/ExerciseForm';
 
 class App extends Component {
   //never arrow fct for performace
@@ -31,6 +32,8 @@ class App extends Component {
         <h2>Create Workout</h2>
           <WorkoutForm />
           {/* <WorkoutDisplay /> */}
+        <h2>Create Exercise</h2>
+          <ExerciseForm />
           <WorkoutContainer />
           <ExerciseContainer />
           <br /> <br /> 
