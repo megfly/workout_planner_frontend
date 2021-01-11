@@ -12,3 +12,23 @@ export const getExercises = () => {
             })    
     }
 }
+
+//passing it workout info
+export const addExercise = (exercise) => { 
+    return dispatch => {
+        dispatch({type: "ADDING_EXERCISE"})
+        fetch("http://localhost:3001/api/v1/exercises", {
+            method: "POST",
+            body: JSON.stringify(exercise),
+            headers: {
+                'Content-Type': 'application/json',
+                "Accept": 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(exercise => {
+            //debugger
+            dispatch({type: "EXERCISE_ADDED", payload: exercise.data}) //payload: workouts.data}
+            })    
+    }
+}
