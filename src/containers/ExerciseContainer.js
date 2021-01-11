@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { getExercises } from '../actions/exercises'
+import { addExercise } from '../actions/exercises'
+import ExerciseDisplay from '../components/ExerciseDisplay'
 
 class ExerciseContainer extends Component {
 
@@ -10,22 +12,31 @@ class ExerciseContainer extends Component {
 
     //i want to click on a workout and it display the exercises.... so my exercises  
 
-    // const exerciseList = this.props.workouts.map((workout, index) => {
-    //     return <WorkoutDisplay 
-    //       key={workout.id}
-    //       //key={index}
-    //       id={workout.id}
-    //       title={workout.attributes.title}
-    //       duration={workout.attributes.duration}
-    //       date={workout.attributes.date}
-    //       //handleAddExercise={this.props.addExercise}
-    //     />
-    // })
-
     render() {
+        const { addExercise } = this.props
+
+        const exerciseList = this.props.exercises.map(exercise => {
+            return <ExerciseDisplay 
+                key={exercise.id} 
+                exerciseId={exercise.id}
+                name={exercise.attributes.name}
+                sets={exercise.attributes.sets}
+                reps={exercise.attributes.reps}
+                weight={exercise.attributes.weight}
+
+                //handleAddExercise={this.props.addExercise}
+
+
+            //examples
+                //handleRemoveQuote={this.props.removeQuote}
+                //handleUpvoteQuote={this.props.upvoteQuote}
+                //handleDownvoteQuote={this.props.downvoteQuote}
+                />
+          })
+
         return (
             <div className="exercises">
-                
+                {exerciseList}
             </div>
         )
     }
@@ -39,4 +50,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getExercises })(ExerciseContainer)
+export default connect(mapStateToProps, { getExercises, addExercise })(ExerciseContainer)
