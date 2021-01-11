@@ -1,8 +1,9 @@
 //working with redux in this component, making it class based
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
-import { getWorkouts } from '../actions/workouts'
+import { getWorkouts, deleteWorkout } from '../actions/workouts'
 import WorkoutDisplay from '../components/WorkoutDisplay'
+
 //import CalendarDisplay from '../components/CalendarDisplay'
 //import { addExercise } from '../actions/exercises'
 
@@ -10,6 +11,11 @@ class WorkoutContainer extends Component {
   //never arrow fct for performace
   componentDidMount(){
       this.props.getWorkouts()
+  }
+
+  handleDeleteWorkout = (event) => {
+    event.preventDefault()
+    this.props.deleteWorkout(event.target.id)
   }
 
   render() {
@@ -23,7 +29,7 @@ class WorkoutContainer extends Component {
           title={workout.attributes.title}
           duration={workout.attributes.duration}
           date={workout.attributes.date}
-          //handleAddExercise={this.props.addExercise}
+          handleDeleteWorkout={this.props.deleteWorkout}
         />
     })
 
@@ -60,5 +66,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getWorkouts })(WorkoutContainer) //connecting a comp gives dispatch
+export default connect(mapStateToProps, { getWorkouts, deleteWorkout })(WorkoutContainer) //connecting a comp gives dispatch
 //addExercise
