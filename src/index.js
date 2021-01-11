@@ -9,14 +9,27 @@ import { createStore, applyMiddleware } from 'redux' //store and thunk middlewar
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+import ExerciseForm from './containers/ExerciseForm';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
   // <React.StrictMode>
+  <Router>
   <Provider store={store}>
     <App />
+    <Route exact path="/workouts/:id/exercises/new" component={ExerciseForm} />
   </Provider>,
+  </Router>,
   // </React.StrictMode>,
   document.getElementById('root')
 );
