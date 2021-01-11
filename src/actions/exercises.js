@@ -7,7 +7,7 @@ export const getExercises = () => {
         fetch("http://localhost:3001/api/v1/exercises")
         .then(res => res.json())
         .then(exercises => {
-            //debugger
+           //console.log(exercises.data)
             dispatch({type: "EXERCISES_LOADED", payload: exercises.data}) //payload: workouts.data}
             })    
     }
@@ -29,6 +29,26 @@ export const addExercise = (exercise) => {
         .then(exercise => {
             //debugger
             dispatch({type: "EXERCISE_ADDED", payload: exercise.data}) //payload: workouts.data}
+            })    
+    }
+}
+
+//passing it workout info
+export const deleteExercise = (id) => { 
+    return dispatch => {
+        dispatch({type: "DELETING_EXERCISE"})
+        fetch(`http://localhost:3001/api/v1/exercises/${id}`, {
+            method: "DELETE",
+            body: JSON.stringify(id),
+            headers: {
+                'Content-Type': 'application/json',
+                "Accept": 'application/json'
+            }
+        })
+      
+        .then(() => {
+            //debugger
+            dispatch({type: "EXERCISE_DELETED", payload: id}) //payload: workouts.data}
             })    
     }
 }
