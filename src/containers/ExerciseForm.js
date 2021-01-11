@@ -1,21 +1,40 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addWorkout } from '../actions/workouts' //need to hit reducer, adding to props
+import { addExercise } from '../actions/exercises' //need to hit reducer, adding to props
 
 class ExerciseForm extends Component {
         //local state
     state = {
         name: "",
-        reps: "",
         sets: "",
+        reps: "",
         weight: ""
     }
 
-    handleChange(event){
+    handleNameChange = (event) => {
         this.setState({
-            [evenet.target.name]: event.target.value
+            name: event.target.value
         })
     }
+
+    handleSetsChange = (event) => {
+        this.setState({
+            sets: event.target.value
+        })
+    }
+
+    handleRepsChange = (event) => {
+        this.setState({
+            reps: event.target.value
+        })
+    }
+
+    handleWeightChange = (event) => {
+        this.setState({
+            weight: event.target.value
+        })
+    }
+
 
     render() {
         return (
@@ -27,7 +46,7 @@ class ExerciseForm extends Component {
                         id="exercise-name"
                         name="exercise-name"
                         placeholder="Exercise Name..."
-                        onChange={this.handleChange} 
+                        onChange={this.handleNameChange} 
                         value={this.state.name}
                     />
                 </p>
@@ -37,7 +56,7 @@ class ExerciseForm extends Component {
                         id="exercise-sets"
                         name="exercise-sets"
                         placeholder="Exercise Sets..."
-                        onChange={this.handleChange} 
+                        onChange={this.handleSetsChange} 
                         value={this.state.sets}
                     />
                 </p>
@@ -47,7 +66,7 @@ class ExerciseForm extends Component {
                         id="exercise-reps"
                         name="exercise-reps"
                         placeholder="Exercise Reps..."
-                        onChange={this.handleChange} 
+                        onChange={this.handleRepsChange} 
                         value={this.state.reps}
                     />
                 </p>
@@ -57,8 +76,8 @@ class ExerciseForm extends Component {
                         id="exercise-weight"
                         name="exercise-weight"
                         placeholder="Exercise Weight..."
-                        onChange={this.handleChange} 
-                        value={this.state.reps}
+                        onChange={this.handleWeightChange} 
+                        value={this.state.weight}
                     />
                 </p>
                 <input type="submit" />
@@ -69,4 +88,4 @@ class ExerciseForm extends Component {
     }
 }
 
-export default connect(mapStateToProps)(ExerciseForm)
+export default connect(null, { addExercise })(ExerciseForm)
