@@ -14,6 +14,13 @@ export default (state = {workouts: [], loading: false}, action) => { //always mu
                 loading: false,
                 workouts: [...state.workouts, action.payload]
             }
+        case("DELETING_WORKOUT"):
+            return {...state, loading: true}
+        case("WORKOUT_DELETED"):
+            return {...state, 
+                loading: false,
+                workouts: state.workouts.filter(workout => workout.id != action.payload)
+            }
         default: 
             return state
     }
