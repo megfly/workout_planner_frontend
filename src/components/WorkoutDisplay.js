@@ -16,8 +16,8 @@ export default function WorkoutDisplay(props, {addExercise} ) {
     // handleClick = (event) => {
     //     this
     // }
-   // debugger
-
+//    debugger
+console.log("props is", props)
     return ( 
         <div className="workout-display">
             {/* <li>{props}</li> */}
@@ -29,11 +29,13 @@ export default function WorkoutDisplay(props, {addExercise} ) {
                 type="button"
                 className="btn btn-danger"
                 variant="primary"
-                // onClick={() => props.handleAddExercise(props.id)}
+                id={props.id}
 
-                onClick={() => addExercise(props.id)}
+                onClick={() => props.handleDeleteWorkout(props.id)}
+
+                // onClick={() => addExercise(props.id)}
                 
-                >Add Exercise
+                >Delete
            </Button> 
             </ul>
         </div>
