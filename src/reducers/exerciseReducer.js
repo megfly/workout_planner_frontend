@@ -5,15 +5,22 @@ export default (state = {exercises: [], loading: false}, action) => { //always m
         case("EXERCISES_LOADED"):
             return {...state, 
                 loading: false,
-                workouts: action.payload
+                exercises: action.payload
             }
-        // case("ADDING_EXERCISE"):
-        //     return {...state, loading: true}
-        // case("EXERCISE_ADDED"):
-        //     return {...state, 
-        //         loading: false,
-        //         workouts: [...state.workouts, action.payload]
-        //     }
+        case("ADDING_EXERCISE"):
+            return {...state, loading: true}
+        case("EXERCISE_ADDED"):
+            return {...state, 
+                loading: false,
+                exercises: [...state.exercises, action.payload]
+            }
+        case("DELETING_EXERCISE"):
+            return {...state, loading: true}
+        case("EXERCISE_DELETED"):
+            return {...state, 
+                loading: false,
+                exercises: state.exercises.filter(exercise => exercise.id != action.payload)
+            }
         default: 
             return state
     }
