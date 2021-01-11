@@ -31,17 +31,11 @@ class App extends Component {
         </header>
         <h2>Create Workout</h2>
           <WorkoutForm />
-
           <WorkoutContainer />
           <ExerciseContainer />
           <br /> <br /> 
-          {/* <Calendar 
-            onChange={this.handleOnChange}
-            value={this.state.date}
-          /> */}
-
+          -------------------------
           <CalendarDisplay />
-          
       </div>
     )
   }
