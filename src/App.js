@@ -31,9 +31,7 @@ class App extends Component {
         </header>
         <h2>Create Workout</h2>
           <WorkoutForm />
-          {/* <WorkoutDisplay /> */}
-        <h2>Create Exercise</h2>
-          <ExerciseForm />
+
           <WorkoutContainer />
           <ExerciseContainer />
           <br /> <br /> 
