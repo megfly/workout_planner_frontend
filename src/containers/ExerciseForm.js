@@ -9,7 +9,7 @@ class ExerciseForm extends Component {
         sets: "",
         reps: "",
         weight: ""
-    }
+    } 
 
     handleNameChange = (event) => {
         this.setState({
@@ -37,6 +37,7 @@ class ExerciseForm extends Component {
 
 
     render() {
+        debugger
         return (
             <div>
                 <form onSubmit={this.handleOnSubmit}>
