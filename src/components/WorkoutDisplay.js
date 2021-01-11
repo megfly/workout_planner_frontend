@@ -4,15 +4,6 @@ import AddExerciseButton from './AddExerciseButton';
 
 //import ExerciseForm from '../containers/ExerciseForm'
 
-// import {
-//     BrowserRouter as Router,
-//     Switch,
-//     Route,
-//     Link,
-//     useRouteMatch,
-//     useParams
-//   } from "react-router-dom";
-
 export default function WorkoutDisplay(props) {
     //{ addExercise } 
     //console.log("props is workoutdisplay", props)
@@ -20,9 +11,10 @@ export default function WorkoutDisplay(props) {
     // handleClick = (event) => {
     //     this
     // }
-//    debugger
+ //  debugger
 console.log("props is", props)
     return ( 
+
 
         <div className="workout-display">
             {/* <li>{props}</li> */}
@@ -32,6 +24,7 @@ console.log("props is", props)
 
            <AddExerciseButton 
                 workoutId={props.id}
+                // id={}
                 type="button"
                 handleAddExercise={props.handleAddExercise}
                 // onClick={() => props.handleAddExercise(props.workoutId)}
