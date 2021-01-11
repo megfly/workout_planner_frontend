@@ -13,18 +13,18 @@ import AddExerciseButton from '../components/AddExerciseButton'
 class WorkoutContainer extends Component {
   //never arrow fct for performace
   //https://flaviocopes.com/react-show-different-component-on-click/
-  constructor(props) {
-    super()
-    this.state = { isEmptyState: true}
-  }
+  // constructor(props) {
+  //   super()
+  //   this.state = { isEmptyState: true}
+  // }
 
-  triggerAddExerciseState = () => {
-    this.setState({
-      ...this.state,
-      isEmptyState: false,
-      isAddExerciseState: true
-    })
-  }
+  // triggerAddExerciseState = () => {
+  //   this.setState({
+  //     ...this.state,
+  //     isEmptyState: false,
+  //     isAddExerciseState: true
+  //   })
+  // }
 
 
   componentDidMount(){
@@ -52,8 +52,8 @@ class WorkoutContainer extends Component {
           duration={workout.attributes.duration}
           date={workout.attributes.date}
           handleDeleteWorkout={this.props.deleteWorkout}
-          handleAddExercise={this.props.handleAddExercise}
-          triggerAddExerciseState={this.state}
+          // handleAddExercise={this.props.handleAddExercise}
+          // triggerAddExerciseState={this.state.isAddExerciseState}
 
           //addExercise={this.triggerAddExerciseState}
           // handleAddExercise={this.props.addExercise}
@@ -77,9 +77,9 @@ class WorkoutContainer extends Component {
           {/* <WorkoutDisplay workoutList={workoutList} /> */}
           {workoutList}
           {/* {workoutPropsForCalendar} */}
-      {this.state.isEmptyState && <AddExerciseButton addExercise={this.triggerAddExerciseState} />}
+      {/* {this.state.isEmptyState && <AddExerciseButton addExercise={this.triggerAddExerciseState} />} */}
   
-      {this.state.isAddExerciseState && <ExerciseForm />}
+      {/* {this.state.isAddExerciseState && <ExerciseForm />} */}
       </div>
         
     )
