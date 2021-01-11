@@ -2,6 +2,8 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 import AddExerciseButton from './AddExerciseButton';
 
+//import ExerciseForm from '../containers/ExerciseForm'
+
 // import {
 //     BrowserRouter as Router,
 //     Switch,
