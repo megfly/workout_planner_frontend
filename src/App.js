@@ -5,7 +5,7 @@ import './App.css';
 import WorkoutContainer from './containers/WorkoutContainer'
 import WorkoutForm from './containers/WorkoutForm';
 import CalendarDisplay from './components/CalendarDisplay'
-import WorkoutDisplay from './components/WorkoutDisplay';
+import ExerciseContainer from './containers/ExerciseContainer';
 
 class App extends Component {
   //never arrow fct for performace
@@ -32,6 +32,7 @@ class App extends Component {
           <WorkoutForm />
           {/* <WorkoutDisplay /> */}
           <WorkoutContainer />
+          <ExerciseContainer />
           <br /> <br /> 
           {/* <Calendar 
             onChange={this.handleOnChange}
