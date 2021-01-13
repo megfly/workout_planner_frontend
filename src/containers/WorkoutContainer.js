@@ -4,28 +4,9 @@ import React, { Component } from 'react'
 import { getWorkouts, deleteWorkout } from '../actions/workouts'
 import { addExercise } from '../actions/exercises'
 import WorkoutDisplay from '../components/WorkoutDisplay'
-import ExerciseForm from './ExerciseForm'
-import AddExerciseButton from '../components/AddExerciseButton'
-
-//import CalendarDisplay from '../components/CalendarDisplay'
-//import { addExercise } from '../actions/exercises'
 
 class WorkoutContainer extends Component {
   //never arrow fct for performace
-  //https://flaviocopes.com/react-show-different-component-on-click/
-  // constructor(props) {
-  //   super()
-  //   this.state = { isEmptyState: true}
-  // }
-
-  // triggerAddExerciseState = () => {
-  //   this.setState({
-  //     ...this.state,
-  //     isEmptyState: false,
-  //     isAddExerciseState: true
-  //   })
-  // }
-
 
   componentDidMount(){
       this.props.getWorkouts()
@@ -36,9 +17,10 @@ class WorkoutContainer extends Component {
     this.props.deleteWorkout(event.target.id)
   }
 
-  handleAddExercise = (event) => {
-    debugger
-  }
+  // handleAddExercise = (event) => {
+  //   this.props.addExercise(event.target.id)
+  // }
+
 
   render() {
     //console.log("workout container props is", this.props)
@@ -52,34 +34,17 @@ class WorkoutContainer extends Component {
           duration={workout.attributes.duration}
           date={workout.attributes.date}
           handleDeleteWorkout={this.props.deleteWorkout}
-          // handleAddExercise={this.props.handleAddExercise}
-          // triggerAddExerciseState={this.state.isAddExerciseState}
-
-          //addExercise={this.triggerAddExerciseState}
-          // handleAddExercise={this.props.addExercise}
+         // handleAddExercise={this.props.handleAddExercise}
+    
         />
     })
-
-    // const workoutPropsForCalendar = this.props.workouts.map((workout, index) => {
-    //   return <CalendarDisplay 
-    //   key={workout.id}
-    //   //key={index}
-    //   title={workout.attributes.title}
-    //   duration={workout.attributes.duration}
-    //   date={workout.attributes.date}
-    // />
-    // })
      
 
     return (
       <div className="Workouts">
-        {/* <AddExerciseButton addExercise={this.triggerAddExerciseState} /> */}
-          {/* <WorkoutDisplay workoutList={workoutList} /> */}
+
           {workoutList}
-          {/* {workoutPropsForCalendar} */}
-      {/* {this.state.isEmptyState && <AddExerciseButton addExercise={this.triggerAddExerciseState} />} */}
-  
-      {/* {this.state.isAddExerciseState && <ExerciseForm />} */}
+
       </div>
         
     )
