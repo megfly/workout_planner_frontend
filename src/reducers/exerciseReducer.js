@@ -7,6 +7,7 @@ export default (state = {exercises: [], loading: false}, action) => { //always m
                 loading: false,
                 exercises: action.payload
             }
+           // debugger
         case("ADDING_EXERCISE"):
             return {...state, loading: true}
         case("EXERCISE_ADDED"):
