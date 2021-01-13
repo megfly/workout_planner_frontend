@@ -8,7 +8,7 @@ class ExerciseForm extends Component {
         name: "",
         sets: "",
         reps: "",
-        weight: ""
+        weight: "",
     } 
 
     handleNameChange = (event) => {
@@ -35,9 +35,39 @@ class ExerciseForm extends Component {
         })
     }
 
+    handleOnSubmit = (event) => {
+       // debugger
+        event.preventDefault();
+
+        const workoutId = this.props.match.params.id
+
+      debugger 
+
+        const exercise = { 
+            name: this.state.name,
+            sets: this.state.sets,
+            reps: this.state.reps,
+            weight: this.state.weight,
+        }
+
+        //addExercise needs information... go into props and pull function and give it the
+        this.props.addExercise(exercise, workoutId)
+
+        //since supressing default behavior we need to claer out the form by updateing dstate
+        this.setState({
+            name: "",
+            sets: "",
+            reps: "",
+            weight: "",
+        })
+        console.log("handleonsumb", this.state)
+      //  console.log(workoutId)
+      }
+
 
     render() {
-        debugger
+       // console.log("THIS ONE IS EXERCUSE FORM", this.state)
+      // debugger
         return (
             <div>
                 <form onSubmit={this.handleOnSubmit}>
