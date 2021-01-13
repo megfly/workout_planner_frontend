@@ -7,7 +7,12 @@ import {
 const AddExerciseButton = props => {
   //debugger
     return (
-    <Link to={`/workouts/${props.workoutId}/exercises/new`}><button> Add Exercise</button></Link>
+    <Link to={`/workouts/${props.workoutId}/exercises/new`}>
+      <button
+        workoutId={props.workoutId}
+        // onClick={() => props.handleAddExercise(props.workoutId)}
+      > Add Exercise</button>
+    </Link>
     )
 }
 
