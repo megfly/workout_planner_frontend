@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { getExercises } from '../actions/exercises'
 import { addExercise, deleteExercise } from '../actions/exercises'
 import ExerciseDisplay from '../components/ExerciseDisplay'
+//import ExerciseForm from './ExerciseForm'
 
 class ExerciseContainer extends Component {
 
@@ -15,15 +16,23 @@ class ExerciseContainer extends Component {
         this.props.deleteExercise(event.target.id)
       }
 
+      // handleAddExercise = (event) => {
+      //   //add new exercise
+      //   debugger
+      // }
+
     //i want to click on a workout and it display the exercises.... so my exercises  
 
     render() {
        // const { addExercise } = this.props
+        
+      // const workoutId= this.props.match.params.id
 
         const exerciseList = this.props.exercises.map(exercise => {
            //debugger
            console.log("exercise container", exercise)
             return <ExerciseDisplay 
+                workoutId={exercise.attributes.workout_id}
                 key={exercise.id} 
                 id={exercise.id}
                 exerciseId={exercise.id}
@@ -32,8 +41,7 @@ class ExerciseContainer extends Component {
                 reps={exercise.attributes.reps}
                 weight={exercise.attributes.weight}
                 handleDeleteExercise={this.props.deleteExercise}
-
-                //handleAddExercise={this.props.addExercise}
+               // handleAddExercise={this.handleAddExercise}
 
 
             //examples
