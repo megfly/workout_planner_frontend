@@ -14,16 +14,17 @@ export const getExercises = () => {
 }
 
 //passing it workout info
-export const addExercise = (exercise, workoutId) => { 
+export const addExercise = (exercise, workout_id) => { 
   // debugger
     console.log("ADD EXERCISE", exercise)
-    console.log("WHY IS THIS THE SAME OBJECT", workoutId)
+    console.log("WHY IS THIS THE SAME OBJECT", workout_id)
     return dispatch => {
         dispatch({type: "ADDING_EXERCISE"})
         //fetch(`http://localhost:3001/api/v1/exercises`, {
-        fetch(`http://localhost:3001/api/v1/workouts/${workoutId}/exercises`, {
+           // debugger 
+        fetch(`http://localhost:3001/api/v1/workouts/${workout_id}/exercises`, {
             method: "POST",
-            body: JSON.stringify(exercise, workoutId),
+            body: JSON.stringify(exercise, workout_id),
             headers: {
                 'Content-Type': 'application/json',
                 "Accept": 'application/json'
@@ -38,13 +39,13 @@ export const addExercise = (exercise, workoutId) => {
 }
 
 //passing it workout info
-export const deleteExercise = (id, workoutId) => { 
+export const deleteExercise = (id, workout_id) => { 
   // debugger
     return dispatch => {
         dispatch({type: "DELETING_EXERCISE"})
-        fetch(`http://localhost:3001/api/v1/workouts/${workoutId}/exercises/${id}`, {
+        fetch(`http://localhost:3001/api/v1/workouts/${workout_id}/exercises/${id}`, {
             method: "DELETE",
-            body: JSON.stringify(id, workoutId),
+            body: JSON.stringify(id, workout_id),
             headers: {
                 'Content-Type': 'application/json',
                 "Accept": 'application/json'
@@ -53,7 +54,7 @@ export const deleteExercise = (id, workoutId) => {
       
         .then(() => {
             //debugger
-            dispatch({type: "EXERCISE_DELETED", payload: workoutId, id}) //payload: workouts.data}
+            dispatch({type: "EXERCISE_DELETED", payload: workout_id, id}) //payload: workouts.data}
             })    
     }
 }

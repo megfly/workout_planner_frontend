@@ -33,12 +33,12 @@ export const addWorkout = (workout) => {
 }
 
 //passing it workout info
-export const deleteWorkout = (id) => { 
+export const deleteWorkout = (workout_id) => { 
     return dispatch => {
         dispatch({type: "DELETING_WORKOUT"})
-        fetch(`http://localhost:3001/api/v1/workouts/${id}`, {
+        fetch(`http://localhost:3001/api/v1/workouts/${workout_id}`, {
             method: "DELETE",
-            body: JSON.stringify(id),
+            body: JSON.stringify(workout_id),
             headers: {
                 'Content-Type': 'application/json',
                 "Accept": 'application/json'
@@ -47,7 +47,7 @@ export const deleteWorkout = (id) => {
       
         .then(() => {
             //debugger
-            dispatch({type: "WORKOUT_DELETED", payload: id}) //payload: workouts.data}
+            dispatch({type: "WORKOUT_DELETED", payload: workout_id}) //payload: workouts.data}
             })    
     }
 }

@@ -26,13 +26,13 @@ class ExerciseContainer extends Component {
     render() {
        // const { addExercise } = this.props
         
-      // const workoutId= this.props.match.params.id
+      // const workout_id= this.props.match.params.id
 
         const exerciseList = this.props.exercises.map(exercise => {
            //debugger
            console.log("exercise container", exercise)
             return <ExerciseDisplay 
-                workoutId={exercise.attributes.workout_id}
+                workout_id={exercise.attributes.workout_id}
                 key={exercise.id} 
                 id={exercise.id}
                 exerciseId={exercise.id}

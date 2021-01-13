@@ -14,22 +14,22 @@ console.log("props is", props)
            {props.duration} {props.date}
 
            <AddExerciseButton 
-                workoutId={props.id}
+                workout_id={props.id}
                 // id={}
                 type="button"
                 handleAddExercise={props.handleAddExercise}
-                onClick={() => props.handleDeleteExercise(props.workoutId)}
+                onClick={() => props.handleDeleteExercise(props.workout_id)}
                 />
 
      
            <Button 
-                workoutId={props.id}
+                workout_id={props.id}
                 type="button"
                 className="btn btn-danger"
                 variant="primary"
                 id={props.id}
 
-                onClick={() => props.handleDeleteWorkout(props.id, props.workoutId)}
+                onClick={() => props.handleDeleteWorkout(props.id, props.workout_id)}
 
                 // onClick={() => addExercise(props.id)}
                 

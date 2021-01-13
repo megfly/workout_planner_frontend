@@ -39,7 +39,7 @@ class ExerciseForm extends Component {
        // debugger
         event.preventDefault();
 
-        const workoutId = this.props.match.params.id 
+        const workout_id = this.props.match.params.id 
 
         const exercise = { 
             name: this.state.name,
@@ -49,7 +49,7 @@ class ExerciseForm extends Component {
         }
       //  debugger
         //addExercise needs information... go into props and pull function and give it the
-        this.props.addExercise(exercise, workoutId)
+        this.props.addExercise(exercise, workout_id)
 
         //since supressing default behavior we need to claer out the form by updateing dstate
         this.setState({
@@ -59,7 +59,7 @@ class ExerciseForm extends Component {
             weight: "",
         })
         console.log("handleonsumb", this.state)
-      //  console.log(workoutId)
+      //  console.log(workout_id)
       }
 
 
