@@ -12,11 +12,9 @@ export default function ExerciseDisplay(props) {
                 className="btn btn-danger"
                 variant="primary"
                 id={props.id}
+                workoutId={props.workoutId}
 
                 onClick={() => props.handleDeleteExercise(props.id)}
-
-                // onClick={() => addExercise(props.id)}
-                
                 > X
            </Button> 
         </div>
