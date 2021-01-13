@@ -29,6 +29,7 @@ class WorkoutContainer extends Component {
         return <WorkoutDisplay 
           key={workout.id}
           //key={index}
+          workoutId={workout.id}
           id={workout.id}
           title={workout.attributes.title}
           duration={workout.attributes.duration}

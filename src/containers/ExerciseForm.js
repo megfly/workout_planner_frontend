@@ -39,9 +39,7 @@ class ExerciseForm extends Component {
        // debugger
         event.preventDefault();
 
-        const workoutId = this.props.match.params.id
-
-      debugger 
+        const workoutId = this.props.match.params.id 
 
         const exercise = { 
             name: this.state.name,
@@ -49,7 +47,7 @@ class ExerciseForm extends Component {
             reps: this.state.reps,
             weight: this.state.weight,
         }
-
+        debugger
         //addExercise needs information... go into props and pull function and give it the
         this.props.addExercise(exercise, workoutId)
 

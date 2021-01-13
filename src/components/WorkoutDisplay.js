@@ -23,6 +23,7 @@ console.log("props is", props)
 
      
            <Button 
+                workoutId={props.id}
                 type="button"
                 className="btn btn-danger"
                 variant="primary"
