@@ -14,7 +14,7 @@ export default function ExerciseDisplay(props) {
                 id={props.id}
                 workoutId={props.workoutId}
 
-                onClick={() => props.handleDeleteExercise(props.id)}
+                onClick={() => props.handleDeleteExercise(props.workoutId, props.id)}
                 > X
            </Button> 
         </div>
