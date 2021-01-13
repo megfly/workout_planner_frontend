@@ -19,6 +19,8 @@ import {
 } from "react-router-dom";
 import ExerciseForm from './containers/ExerciseForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
+//import Calendar from 'react-calendar';
+// import CalendarDisplay from './components/CalendarDisplay'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
@@ -27,7 +29,6 @@ ReactDOM.render(
   <Router>
   <Provider store={store}>
     <App />
-    <Route exact path="/workouts/:id/exercises/new" component={ExerciseForm} />
   </Provider>,
   </Router>,
   // </React.StrictMode>,
