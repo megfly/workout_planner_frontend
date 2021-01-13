@@ -29,7 +29,7 @@ console.log("props is", props)
                 variant="primary"
                 id={props.id}
 
-                onClick={() => props.handleDeleteWorkout(props.id)}
+                onClick={() => props.handleDeleteWorkout(props.id, props.workoutId)}
 
                 // onClick={() => addExercise(props.id)}
                 

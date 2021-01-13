@@ -13,6 +13,7 @@ class WorkoutContainer extends Component {
   }
 
   handleDeleteWorkout = (event) => {
+    //debugger
     event.preventDefault()
     this.props.deleteWorkout(event.target.id)
   }

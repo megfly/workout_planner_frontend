@@ -23,7 +23,7 @@ export const addExercise = (exercise, workoutId) => {
         //fetch(`http://localhost:3001/api/v1/exercises`, {
         fetch(`http://localhost:3001/api/v1/workouts/${workoutId}/exercises`, {
             method: "POST",
-            body: JSON.stringify(exercise),
+            body: JSON.stringify(exercise, workoutId),
             headers: {
                 'Content-Type': 'application/json',
                 "Accept": 'application/json'
@@ -38,13 +38,13 @@ export const addExercise = (exercise, workoutId) => {
 }
 
 //passing it workout info
-export const deleteExercise = (id) => { 
-   // debugger
+export const deleteExercise = (id, workoutId) => { 
+   debugger
     return dispatch => {
         dispatch({type: "DELETING_EXERCISE"})
-        fetch(`http://localhost:3001/api/v1/exercises/${id}`, {
+        fetch(`http://localhost:3001/api/v1/workouts/${workoutId}/exercises/${id}`, {
             method: "DELETE",
-            body: JSON.stringify(id),
+            body: JSON.stringify(id, workoutId),
             headers: {
                 'Content-Type': 'application/json',
                 "Accept": 'application/json'
