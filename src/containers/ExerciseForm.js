@@ -47,7 +47,7 @@ class ExerciseForm extends Component {
             reps: this.state.reps,
             weight: this.state.weight,
         }
-        debugger
+      //  debugger
         //addExercise needs information... go into props and pull function and give it the
         this.props.addExercise(exercise, workoutId)
 

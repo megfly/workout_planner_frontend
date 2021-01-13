@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 
 export default function ExerciseDisplay(props) {
-  //debugger 
+ // debugger 
     return (
         <div className="exercises">
             {props.name} - sets: {props.sets} - Reps: {props.reps} - Weight: {props.weight}

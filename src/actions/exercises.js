@@ -39,7 +39,7 @@ export const addExercise = (exercise, workoutId) => {
 
 //passing it workout info
 export const deleteExercise = (id, workoutId) => { 
-   debugger
+  // debugger
     return dispatch => {
         dispatch({type: "DELETING_EXERCISE"})
         fetch(`http://localhost:3001/api/v1/workouts/${workoutId}/exercises/${id}`, {
@@ -53,7 +53,7 @@ export const deleteExercise = (id, workoutId) => {
       
         .then(() => {
             //debugger
-            dispatch({type: "EXERCISE_DELETED", payload: id}) //payload: workouts.data}
+            dispatch({type: "EXERCISE_DELETED", payload: workoutId, id}) //payload: workouts.data}
             })    
     }
 }
