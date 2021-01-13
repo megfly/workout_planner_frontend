@@ -14,10 +14,14 @@ export const getExercises = () => {
 }
 
 //passing it workout info
-export const addExercise = (exercise) => { 
+export const addExercise = (exercise, workoutId) => { 
+  // debugger
+    console.log("ADD EXERCISE", exercise)
+    console.log("WHY IS THIS THE SAME OBJECT", workoutId)
     return dispatch => {
         dispatch({type: "ADDING_EXERCISE"})
-        fetch("http://localhost:3001/api/v1/exercises", {
+        //fetch(`http://localhost:3001/api/v1/exercises`, {
+        fetch(`http://localhost:3001/api/v1/workouts/${workoutId}/exercises`, {
             method: "POST",
             body: JSON.stringify(exercise),
             headers: {
@@ -35,6 +39,7 @@ export const addExercise = (exercise) => {
 
 //passing it workout info
 export const deleteExercise = (id) => { 
+   // debugger
     return dispatch => {
         dispatch({type: "DELETING_EXERCISE"})
         fetch(`http://localhost:3001/api/v1/exercises/${id}`, {
