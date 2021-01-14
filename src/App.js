@@ -27,6 +27,9 @@ class App extends Component {
     <Route exact path="/exercises" component={ExerciseContainer} />
     <Route exact path="/workouts/new" component={WorkoutForm} />
     <Route exact path="/workouts/:id/exercises/new" component={ExerciseForm} />
+
+    ///////////////////////why is this a function?????????
+    
     <Route exact path="/workouts/:id/exercises" component={ExerciseShow} />
           </switch>
       </div>
