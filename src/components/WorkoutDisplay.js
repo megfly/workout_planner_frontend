@@ -1,6 +1,10 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import AddExerciseButton from './AddExerciseButton';
+import {
+    BrowserRouter as Router,
+    Link
+  } from "react-router-dom";
 
 export default function WorkoutDisplay(props) {
 
@@ -10,15 +14,16 @@ console.log("props is", props)
         <div className="workout-display">
         
         <ul>
+        <Link to={`/workouts/${props.workout_id}/exercises/`}>
            <h4>{props.title}</h4>
-           {props.duration} {props.date}
+        </ Link>
+
+           <h5> {props.duration} <p> {props.date} </p> </h5>
 
            <AddExerciseButton 
                 workout_id={props.id}
-                // id={}
                 type="button"
                 handleAddExercise={props.handleAddExercise}
-                onClick={() => props.handleDeleteExercise(props.workout_id)}
                 />
 
      
@@ -29,9 +34,7 @@ console.log("props is", props)
                 variant="primary"
                 id={props.id}
 
-                onClick={() => props.handleDeleteWorkout(props.id, props.workout_id)}
-
-                // onClick={() => addExercise(props.id)}
+                onClick={props.handleDeleteWorkout}
                 
                 >Delete
            </Button> 

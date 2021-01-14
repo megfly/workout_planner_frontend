@@ -72,6 +72,8 @@ class WorkoutForm extends Component {
       //  console.log("form", this.state)
         return (
             <form onSubmit={this.handleOnSubmit}>
+                 <br />
+                 <h2>Workout</h2>
                 <p>
                     <input
                         type="text"

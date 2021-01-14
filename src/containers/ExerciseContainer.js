@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { getExercises } from '../actions/exercises'
 import { addExercise, deleteExercise } from '../actions/exercises'
 import ExerciseDisplay from '../components/ExerciseDisplay'
-//import ExerciseForm from './ExerciseForm'
 
 class ExerciseContainer extends Component {
 
@@ -12,44 +11,34 @@ class ExerciseContainer extends Component {
     }
 
     handleDeleteExercise = (event) => {
-        event.preventDefault()
+      ///////////////////////////////
+      ///////////////////////////////
+      /////////////////////////////// DELETING EXERCISE 404
+      //we need to target the wokrout id and the exercise id.......??
+
+   // debugger
+      console.log("handle delete exercise", event)
+      debugger
         this.props.deleteExercise(event.target.id)
+        //event.target.id = exercise id...
       }
 
-      // handleAddExercise = (event) => {
-      //   //add new exercise
-      //   debugger
-      // }
-
-    //i want to click on a workout and it display the exercises.... so my exercises  
-
     render() {
-       // const { addExercise } = this.props
-        
-      // const workout_id= this.props.match.params.id
 
         const exerciseList = this.props.exercises.map(exercise => {
-           //debugger
+         //debugger
            console.log("exercise container", exercise)
             return <ExerciseDisplay 
-                workout_id={exercise.attributes.workout_id}
+                workout_id={exercise.attributes.workout_id} //
                 key={exercise.id} 
-                id={exercise.id}
-                exerciseId={exercise.id}
+                id={exercise.id} //exercise id 2 
                 name={exercise.attributes.name}
                 sets={exercise.attributes.sets}
                 reps={exercise.attributes.reps}
                 weight={exercise.attributes.weight}
-                handleDeleteExercise={this.props.deleteExercise}
-               // handleAddExercise={this.handleAddExercise}
-
-
-            //examples
-                //handleRemoveQuote={this.props.removeQuote}
-                //handleUpvoteQuote={this.props.upvoteQuote}
-                //handleDownvoteQuote={this.props.downvoteQuote}
+                handleDeleteExercise={this.handleDeleteExercise}
                 />
-          })
+          });
 
         return (
             <div className="exercises">

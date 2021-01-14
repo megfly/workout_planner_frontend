@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 
 export default function ExerciseDisplay(props) {
- // debugger 
+//debugger 
     return (
         <div className="exercises">
             {props.name} - sets: {props.sets} - Reps: {props.reps} - Weight: {props.weight}
@@ -14,7 +14,9 @@ export default function ExerciseDisplay(props) {
                 id={props.id}
                 workout_id={props.workout_id}
 
-                onClick={() => props.handleDeleteExercise(props.workout_id, props.id)}
+                onClick={props.handleDeleteExercise}
+ 
+                //onClick={() => props.handleDeleteExercise(props.workout_id, props.id)}
                 > X
            </Button> 
         </div>

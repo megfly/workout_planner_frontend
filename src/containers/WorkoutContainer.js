@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { getWorkouts, deleteWorkout } from '../actions/workouts'
 import { addExercise } from '../actions/exercises'
 import WorkoutDisplay from '../components/WorkoutDisplay'
+import ExerciseShow from '../components/ExerciseShow'
 
 class WorkoutContainer extends Component {
   //never arrow fct for performace
@@ -13,39 +14,46 @@ class WorkoutContainer extends Component {
   }
 
   handleDeleteWorkout = (event) => {
-    //debugger
-    event.preventDefault()
+   debugger
     this.props.deleteWorkout(event.target.id)
   }
 
-  // handleAddExercise = (event) => {
-  //   this.props.addExercise(event.target.id)
-  // }
-
-
   render() {
-    //console.log("workout container props is", this.props)
- //debugger 
+ 
     const workoutList = this.props.workouts.map((workout, index) => {
         return <WorkoutDisplay 
           key={workout.id}
-          //key={index}
           workout_id={workout.id}
           id={workout.id}
           title={workout.attributes.title}
           duration={workout.attributes.duration}
           date={workout.attributes.date}
-          handleDeleteWorkout={this.props.deleteWorkout}
-         // handleAddExercise={this.props.handleAddExercise}
-    
+          handleDeleteWorkout={this.handleDeleteWorkout}
+
         />
     })
+
+    const workoutDisplayList = this.props.workouts.map(workout => {
+ 
+      workout.attributes.exercises.map(exer => {
+      // debugger 
+        return <ExerciseShow 
+            key={exer.id}
+            workout_id={exer.workout_id}
+            name={exer.name}
+            reps={exer.reps}
+            sets={exer.sets}
+            weight={exer.weight}
+          />
+      })
+    }) 
      
 
     return (
       <div className="Workouts">
 
           {workoutList}
+          {workoutDisplayList}
 
       </div>
         

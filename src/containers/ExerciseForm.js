@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addExercise } from '../actions/exercises' //need to hit reducer, adding to props
+import {
+    BrowserRouter as Router,
+    Link
+  } from "react-router-dom";
+  import { Button, Form } from 'react-bootstrap';
+  import 'bootstrap/dist/css/bootstrap.min.css';
 
 class ExerciseForm extends Component {
         //local state
@@ -10,6 +16,9 @@ class ExerciseForm extends Component {
         reps: "",
         weight: "",
     } 
+    ////////////////////////////////////
+    ////////////////////////////////////
+    ////////////////////////////////////handle on submit post request 500 error
 
     handleNameChange = (event) => {
         this.setState({
@@ -65,9 +74,15 @@ class ExerciseForm extends Component {
 
     render() {
        // console.log("THIS ONE IS EXERCUSE FORM", this.state)
-      // debugger
+     // debugger
+     
+     const workout_id = this.props.match.params.id 
         return (
             <div>
+                <br />
+                <h2>Exercise</h2>
+                < br />
+                 <Link to={`/workouts/${workout_id}/exercises`}></Link>
                 <form onSubmit={this.handleOnSubmit}>
                 <p>
                     <input
@@ -104,7 +119,7 @@ class ExerciseForm extends Component {
                         type="text"
                         id="exercise-weight"
                         name="exercise-weight"
-                        placeholder="Exercise Weight..."
+                        placeholder="Exercise Weight (lbs)..."
                         onChange={this.handleWeightChange} 
                         value={this.state.weight}
                     />
