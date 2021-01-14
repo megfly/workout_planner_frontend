@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import { connect } from 'react-redux'
-import WorkoutDisplay from './WorkoutDisplay'
+//import WorkoutDisplay from './WorkoutDisplay'
 
 class CalendarDisplay extends Component {
 
@@ -20,10 +20,10 @@ class CalendarDisplay extends Component {
         })
 
         //match the calendar state date with this.props.workouts.attributes.date
-        let calendarClick = this.state 
+        //let calendarClick = this.state 
 
         //calendarClick === event 
-        console.log("this is state", this.state)
+        //console.log("this is state", this.state)
         
    
         //filter the results per date and have it show only the data form those dates
@@ -33,37 +33,49 @@ class CalendarDisplay extends Component {
 
     render() {
 
-    const workoutResults = this.props.workouts.map((workout, index) => {
-        return <WorkoutDisplay 
-          key={workout.id}
-          title={workout.attributes.title}
-          duration={workout.attributes.duration}
-          date={workout.attributes.date}
-        />
-    })
+    // const workoutResults = this.props.workouts.map((workout, index) => {
+    //     return <WorkoutDisplay 
+    //       key={workout.id}
+    //       title={workout.attributes.title}
+    //       duration={workout.attributes.duration}
+    //       date={workout.attributes.date}
+    //     />
+    // })
 
-    if (workoutResults) {
-            return (
-                <div>
-                    <Calendar
-                        onChange={this.onSelect}
-                        value={this.state.date}
-                    />
-                    {/* {workoutResults} */}
-                    </div>
-            )
-        }
+    return (
+        <div className="calendar">
+            <br />
+            <h2>Home Page</h2>
+            <br /><br />
+            <Calendar 
+                onChange={this.onSelect}
+                value={this.state.date}
+            />
+        </div>
+    )
+
+    // if (workoutResults) {
+    //         return (
+    //             <div>
+    //                 <Calendar
+    //                     onChange={this.onSelect}
+    //                     value={this.state.date}
+    //                 />
+    //                 {/* {workoutResults} */}
+    //                 </div>
+    //         )
+    //     }
 
 
-        return (
-            <div>
-                <Calendar
-                    onChange={this.onSelect}
-                    value={this.state.date}
-                /> 
-                <h3>No Workouts on this date</h3>
-            </div>
-        )
+    //     return (
+    //         <div>
+    //             <Calendar
+    //                 onChange={this.onSelect}
+    //                 value={this.state.date}
+    //             /> 
+    //             <h3>No Workouts on this date</h3>
+    //         </div>
+    //     )
     }
 }
 
