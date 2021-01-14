@@ -39,13 +39,13 @@ export const addExercise = (exercise, workout_id) => {
 }
 
 //passing it workout info
-export const deleteExercise = (id, workout_id) => { 
-  // debugger
+export const deleteExercise = (workout_id, id) => { 
+  //debugger
     return dispatch => {
         dispatch({type: "DELETING_EXERCISE"})
         fetch(`http://localhost:3001/api/v1/workouts/${workout_id}/exercises/${id}`, {
             method: "DELETE",
-            body: JSON.stringify(id, workout_id),
+            body: JSON.stringify(workout_id, id),
             headers: {
                 'Content-Type': 'application/json',
                 "Accept": 'application/json'
