@@ -9,9 +9,6 @@ import WorkoutForm from './containers/WorkoutForm';
 import CalendarDisplay from './components/CalendarDisplay'
 import ExerciseContainer from './containers/ExerciseContainer';
 import ExerciseForm from './containers/ExerciseForm';
-import ExerciseDisplay from './components/ExerciseDisplay';
-
-
 
 class App extends Component {
 
