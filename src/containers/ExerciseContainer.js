@@ -6,8 +6,11 @@ import ExerciseDisplay from '../components/ExerciseDisplay'
 
 class ExerciseContainer extends Component {
 
-    componentDidMount(){
-        this.props.getExercises()
+    componentDidMount(workout_id){
+      //debugger
+      //this.props.match.params.id id pass
+        workout_id = this.props.match.params.id
+        this.props.getExercises(workout_id)
     }
 
     handleDeleteExercise = (event) => {
@@ -26,9 +29,13 @@ class ExerciseContainer extends Component {
     render() {
 //debugger
         const exerciseList = this.props.exercises.map(exercise => {
-         //debugger
+        //  debugger
            console.log("exercise container", exercise)
             return <ExerciseDisplay 
+                workout_title={exercise.attributes.workout.title}
+                reps={exercise.attributes.workout.reps}
+                sets={exercise.attributes.workout.sets}
+                weight={exercise.attributes.workout.weight}
                 workout_id={exercise.attributes.workout_id} //
                 key={exercise.id} 
                 id={exercise.id} //exercise id 2 
@@ -44,6 +51,7 @@ class ExerciseContainer extends Component {
         return (
             <div className="exercises">
                 {exerciseList}
+              
             </div>
         )
     }
