@@ -1,12 +1,15 @@
 //action object creator function
 
-export const getExercises = () => { 
-    //debugger
+export const getExercises = (workout_id) => { 
+    // debugger
     return dispatch => {
         dispatch({type: "LOADING_EXERCISES"})
-        fetch("http://localhost:3001/api/v1/exercises")
+        // nest with the params, what we call it here- it will be called that in controller method....
+        // debugger 
+        fetch(`http://localhost:3001/api/v1/workouts/${workout_id}/exercises`) 
         .then(res => res.json())
         .then(exercises => {
+            // debugger
            //console.log(exercises.data)
             dispatch({type: "EXERCISES_LOADED", payload: exercises.data}) //payload: workouts.data}
             })    
@@ -21,7 +24,7 @@ export const addExercise = (exercise, workout_id) => {
     return dispatch => {
         dispatch({type: "ADDING_EXERCISE"})
         //fetch(`http://localhost:3001/api/v1/exercises`, {
-           // debugger 
+            debugger 
         fetch(`http://localhost:3001/api/v1/workouts/${workout_id}/exercises`, {
             method: "POST",
             body: JSON.stringify(exercise, workout_id),
