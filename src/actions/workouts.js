@@ -1,12 +1,13 @@
 //action object creator function
 
 export const getWorkouts = () => { 
+    // debugger this is working...
     return dispatch => {
         dispatch({type: "LOADING_WORKOUTS"})
         fetch("http://localhost:3001/api/v1/workouts")
         .then(res => res.json())
         .then(workouts => {
-            //debugger
+            // debugger
             dispatch({type: "WORKOUTS_LOADED", payload: workouts.data}) //payload: workouts.data}
             })    
     }
