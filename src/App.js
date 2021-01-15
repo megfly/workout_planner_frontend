@@ -9,7 +9,9 @@ import WorkoutForm from './containers/WorkoutForm';
 import CalendarDisplay from './components/CalendarDisplay'
 import ExerciseContainer from './containers/ExerciseContainer';
 import ExerciseForm from './containers/ExerciseForm';
-import ExerciseShow from './components/ExerciseShow'
+import ExerciseDisplay from './components/ExerciseDisplay';
+
+
 
 class App extends Component {
 
@@ -21,17 +23,16 @@ class App extends Component {
         <header className="App-header">
           <NavBar />
         </header>
-          <switch>
+          <Switch>
     <Route exact path="/" component={CalendarDisplay} />
     <Route exact path="/workouts" component={WorkoutContainer} />
     <Route exact path="/exercises" component={ExerciseContainer} />
     <Route exact path="/workouts/new" component={WorkoutForm} />
     <Route exact path="/workouts/:id/exercises/new" component={ExerciseForm} />
-
-    ///////////////////////why is this a function?????????
-    
-    <Route exact path="/workouts/:id/exercises" component={ExerciseShow} />
-          </switch>
+    <Route exact path="/workouts/:id/exercises" component={ExerciseContainer}/>
+    {/*  */}
+    {/* <Route exact path="/workouts/:id/exercises" component={ExerciseShow} /> */}
+          </Switch>
       </div>
       </Router>
     )
