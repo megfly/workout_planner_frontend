@@ -5,6 +5,7 @@ export default function ExerciseDisplay(props) {
 //debugger 
     return (
         <div className="exercises">
+            {props.workout_id}.
             {props.name} - sets: {props.sets} - Reps: {props.reps} - Weight: {props.weight}
 
             <Button 
