@@ -1,8 +1,10 @@
 export default (state = {exercises: [], loading: false}, action) => { //always must return state
     switch(action.type){
         case("LOADING_EXERCISES"):
+        // debugger 
             return {...state, loading: true}
         case("EXERCISES_LOADED"):
+        // debugger 
             return {...state, 
                 loading: false,
                 exercises: action.payload
