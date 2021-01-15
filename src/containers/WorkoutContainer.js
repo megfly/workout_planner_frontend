@@ -9,6 +9,7 @@ class WorkoutContainer extends Component {
   //never arrow fct for performace
 
   componentDidMount(){
+    //debugger 
       this.props.getWorkouts()
   }
 
@@ -19,6 +20,7 @@ class WorkoutContainer extends Component {
 
   render() {
  
+    //cannot read property of undefined
     const workoutList = this.props.workouts.map((workout, index) => {
       //debugger
         return <WorkoutDisplay 
