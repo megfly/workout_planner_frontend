@@ -17,3 +17,4 @@ const AddExerciseButton = props => {
 }
 
 export default AddExerciseButton
+
