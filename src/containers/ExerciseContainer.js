@@ -18,13 +18,13 @@ class ExerciseContainer extends Component {
 
    // debugger
       console.log("handle delete exercise", event)
-      debugger
+      //debugger
         this.props.deleteExercise(event.target.id)
         //event.target.id = exercise id...
       }
 
     render() {
-
+//debugger
         const exerciseList = this.props.exercises.map(exercise => {
          //debugger
            console.log("exercise container", exercise)
@@ -39,6 +39,7 @@ class ExerciseContainer extends Component {
                 handleDeleteExercise={this.handleDeleteExercise}
                 />
           });
+
 
         return (
             <div className="exercises">
