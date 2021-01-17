@@ -1,25 +1,24 @@
 import React from 'react'
-import { Button } from 'react-bootstrap';
+//import { Button } from 'react-bootstrap';
+import DeleteExerciseButton from './DeleteExerciseButton';
 
 export default function ExerciseDisplay(props) {
 //debugger 
+//console.log(props)
     return (
         <div className="exercises">
-            {props.workout_id}.
-            {props.name} - sets: {props.sets} - Reps: {props.reps} - Weight: {props.weight}
+         
+            <h5>{props.name} </h5>
+            <p /> 
+            sets: {props.sets} - Reps: {props.reps} - Weight: {props.weight}
 
-            <Button 
-                type="button"
-                className="btn btn-danger"
-                variant="primary"
-                id={props.id}
+            <DeleteExerciseButton 
                 workout_id={props.workout_id}
-
-                onClick={props.handleDeleteExercise}
- 
-                //onClick={() => props.handleDeleteExercise(props.workout_id, props.id)}
-                > X
-           </Button> 
+                id={props.id}
+                handleDeleteExercise={props.handleDeleteExercise}
+            />
+            <br />
+            <br />
         </div>
     )
 }
