@@ -2,41 +2,45 @@ import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { getExercises } from '../actions/exercises'
 import { addExercise, deleteExercise } from '../actions/exercises'
+//import { deleteWorkoutExercise } from '../actions/workouts'
 import ExerciseDisplay from '../components/ExerciseDisplay'
 
 class ExerciseContainer extends Component {
 
-    componentDidMount(workout_id){
+    componentDidMount(){
       //debugger
       //this.props.match.params.id id pass
-        workout_id = this.props.match.params.id
+        const workout_id = this.props.match.params.id
         this.props.getExercises(workout_id)
     }
 
     handleDeleteExercise = (event) => {
-      ///////////////////////////////
-      ///////////////////////////////
-      /////////////////////////////// DELETING EXERCISE 404
-      //we need to target the wokrout id and the exercise id.......??
 
-   // debugger
+     // debugger 
       console.log("handle delete exercise", event)
+      console.log("PROPS", this.props)
+      
+      const workout_id = this.props.match.params.id
+      //const exercise_id = event.target.id 
       //debugger
-        this.props.deleteExercise(event.target.id)
-        //event.target.id = exercise id...
+
+      //go to the workouts reducer to delete the exercise in workouts.attributes.exercies.id
+        //this.props.deleteWorkoutExercise(workout_id, event.target.id)
+
+        //go to exercise reducer to delete the exercise 
+        this.props.deleteExercise(workout_id, event.target.id)
       }
 
+
     render() {
-//debugger
         const exerciseList = this.props.exercises.map(exercise => {
-        //  debugger
+
            console.log("exercise container", exercise)
             return <ExerciseDisplay 
-                workout_title={exercise.attributes.workout.title}
-                reps={exercise.attributes.workout.reps}
-                sets={exercise.attributes.workout.sets}
-                weight={exercise.attributes.workout.weight}
-                workout_id={exercise.attributes.workout_id} //
+                // workout_title={exercise.attributes.workout.title}
+                // workout_duration={exercise.attributes.workout.duration}
+                // workout_date={exercise.attributes.workout.date}
+                workout_id={exercise.attributes.workout_id} 
                 key={exercise.id} 
                 id={exercise.id} //exercise id 2 
                 name={exercise.attributes.name}
@@ -46,20 +50,34 @@ class ExerciseContainer extends Component {
                 handleDeleteExercise={this.handleDeleteExercise}
                 />
           });
+          
+//       const workoutList = this.props.workouts.map(workout => {
+// //debugger 
+//             console.log("exercise container", workout)
+//             return <ExerciseDisplay 
+//                 key={workout.id}
+//                 workout_id={workout.id}
+//                 title={workout.attributes.title}
+//                 duration={workout.attributes.duration}
+//                 date={workout.attributes.date}
+//           />
+//            });
 
 
         return (
             <div className="exercises">
                 {exerciseList}
-              
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
+  //debugger 
+  //added my workoutReducer in order to try to delete the exercises from workouts array ?
   return {
     exercises: state.exerciseReducer.exercises, //found in reducer
+    // workouts: state.workoutReducer.workouts,
     loading: state.exerciseReducer.loading,
     //loading is cuz fetch is async, takes time to get promise of result, so we use loading flag
   }
