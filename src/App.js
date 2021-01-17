@@ -9,6 +9,8 @@ import WorkoutForm from './containers/WorkoutForm';
 import CalendarDisplay from './components/CalendarDisplay'
 import ExerciseContainer from './containers/ExerciseContainer';
 import ExerciseForm from './containers/ExerciseForm';
+//import WorkoutExercisesContainer from './containers/WorkoutExercisesContainer';
+//import WorkoutExerciseDisplay from './components/WorkoutExerciseDisplay';
 
 class App extends Component {
 
@@ -26,7 +28,7 @@ class App extends Component {
     <Route exact path="/exercises" component={ExerciseContainer} />
     <Route exact path="/workouts/new" component={WorkoutForm} />
     <Route exact path="/workouts/:id/exercises/new" component={ExerciseForm} />
-    <Route exact path="/workouts/:id/exercises" component={ExerciseContainer}/>
+    <Route exact path="/workouts/:id/exercises" component={ExerciseContainer} />
     {/*  */}
     {/* <Route exact path="/workouts/:id/exercises" component={ExerciseShow} /> */}
           </Switch>
