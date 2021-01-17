@@ -50,7 +50,7 @@ export const deleteWorkout = (workout_id) => {
 }
 
 // export const deleteWorkoutExercise = (workout_id, id) => { 
-//    // debugger
+//    debugger
 //         return dispatch => {
 //             dispatch({type: "DELETING_WORKOUT_EXERCISE"})
 //             fetch(`http://localhost:3001/api/v1/workouts/${workout_id}/exercises/${id}`, {
@@ -61,13 +61,17 @@ export const deleteWorkout = (workout_id) => {
 //                     "Accept": 'application/json'
 //                 }
 //             })
-          
-//             .then(() => {
-//                 //debugger
-//                 dispatch({type: "WORKOUT_EXERCISE_DELETED", payload: workout_id, id}) //payload: workouts.data}
-//                 })    
+//                 .then(res => res.json())
+//                 .then(workout => dispatch({type: "WORKOUT_EXERCISE_DELETED", payload: workout})) 
+//                 //
+//             // .then(() => {
+//             //     //debugger
+//             //     dispatch({type: "WORKOUT_EXERCISE_DELETED", payload: workout_id, id}) //payload: workouts.data}
+//             //     })    
 //         }
 //     }
+
+
 
 //2 dispatches when working w thunk.. return a function.. two dispatches
 //dispatch is how you send yoru actions to the reducer
