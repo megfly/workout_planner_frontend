@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import AddExerciseButton from './AddExerciseButton';
+import DeleteWorkoutButton from './DeleteWorkoutButton'
 import {
     BrowserRouter as Router,
     Link
@@ -26,18 +27,13 @@ export default function WorkoutDisplay(props) {
                 handleAddExercise={props.handleAddExercise}
             />
      
-           <Button 
+           <DeleteWorkoutButton 
                 workout_id={props.id}
-                exercise_id={props.exercise_id}
                 type="button"
-                className="btn btn-danger"
-                variant="primary"
                 id={props.id}
-
-                onClick={props.handleDeleteWorkout}
-                
-                >Delete
-           </Button> 
+                handleDeleteWorkout={props.handleDeleteWorkout}
+                //onClick={props.handleDeleteWorkout}
+                />
 
             </ul>
         </div>
