@@ -30,20 +30,19 @@ export const addExercise = (exercise, workout_id) => {
     }
 }
 
-export const deleteExercise = (workout_id, id) => { 
-    return dispatch => {
-        dispatch({type: "DELETING_EXERCISE"})
-        fetch(`http://localhost:3001/api/v1/workouts/${workout_id}/exercises/${id}`, {
-            method: "DELETE",
-            body: JSON.stringify(workout_id, id),
-            headers: {
-                'Content-Type': 'application/json',
-                "Accept": 'application/json'
-            }
-        })
-      
-        .then(() => {
-            dispatch({type: "EXERCISE_DELETED", payload: workout_id, id}) //payload: workouts.data}
-            })    
-    }
-}
+// export const deleteExercise = (workout_id, id) => { 
+//     return dispatch => {
+//         dispatch({type: "DELETING_EXERCISE"})
+//         fetch(`http://localhost:3001/api/v1/workouts/${workout_id}/exercises/${id}`, {
+//             method: "DELETE",
+//             body: JSON.stringify(workout_id, id),
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 "Accept": 'application/json'
+//             }
+//         })
+//         .then(() => {
+//             dispatch({type: "EXERCISE_DELETED", payload: workout_id, id}) //payload: workouts.data}
+//             })    
+//     }
+// }
