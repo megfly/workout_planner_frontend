@@ -7,8 +7,8 @@ import {
   } from "react-router-dom";
 
 export default function WorkoutDisplay(props) {
-
-console.log("props is", props)
+//debugger 
+//console.log("props is", props)
     return ( 
 
         <div className="workout-display">
@@ -24,11 +24,11 @@ console.log("props is", props)
                 workout_id={props.id}
                 type="button"
                 handleAddExercise={props.handleAddExercise}
-                />
-
+            />
      
            <Button 
                 workout_id={props.id}
+                exercise_id={props.exercise_id}
                 type="button"
                 className="btn btn-danger"
                 variant="primary"
