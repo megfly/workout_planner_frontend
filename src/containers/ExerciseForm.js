@@ -67,7 +67,7 @@ class ExerciseForm extends Component {
             reps: "",
             weight: "",
         })
-        console.log("handleonsumb", this.state)
+        //console.log("handleonsumb", this.state)
       //  console.log(workout_id)
       }
 
