@@ -17,13 +17,16 @@ export default (state = {exercises: [], loading: false}, action) => { //always m
                 loading: false,
                 exercises: [...state.exercises, action.payload]
             }
-        case("DELETING_EXERCISE"):
+        case("DELETING_EXERCISE"): 
+    debugger 
+             console.log("this is exercise state", state)
             return {...state, loading: true}
-        case("EXERCISE_DELETED"):
+        case("EXERCISE_DELETED"):  
+ debugger 
             return {...state, 
                 loading: false,
                 exercises: state.exercises.filter(exercise => exercise.id != action.payload)
-            }
+            } 
         default: 
             return state
     }
