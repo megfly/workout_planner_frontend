@@ -21,25 +21,18 @@ export default (state = {workouts: [], loading: false}, action) => { //always mu
                 loading: false,
                 workouts: state.workouts.filter(workout => workout.id != action.payload)
             }
-
-        // case("DELETING_WORKOUT_EXERCISE"):
+        // case("DELETING_WORKOUT_EXERCISE"): 
         // debugger 
-        //     console.log("this is workout reducer workout state", state)
-        //     //state is returning array(0).....
-        //     // need to have workouts in here......... ......................
-   
+        //     //https://redux.js.org/recipes/structuring-reducers/immutable-update-patterns
         //         return {...state, loading: true}
-        // case("WORKOUT_EXERCISE_DELETED"):  
-        //     return {...state, 
-        //             loading: false,
-    
-        //        //state.workouts.attributes.exercises
-        //        workouts: state.workouts.filter(wo => wo.attributes.exercises.id != action.payload)
-        //     } 
-        //     //payload will be two different ids
-        //     //object key value with the workout id and key value with exercise id
-
-
+        // case("WORKOUT_EXERCISE_DELETED"):   
+        //     return {...state,
+        //         loading: false,
+        //         workouts: state.workouts.map(workout => { 
+        //             debugger 
+        //                     workout.attributes.exercises.filter(exer => exer.id != action.payload)
+        //         })
+        //     }
         default: 
             return state
     }
