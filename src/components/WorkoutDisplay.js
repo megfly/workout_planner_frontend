@@ -6,6 +6,7 @@ import {
     BrowserRouter as Router,
     Link
   } from "react-router-dom";
+import Card from 'react-bootstrap/Card'
 
 export default function WorkoutDisplay(props) {
 //debugger 
@@ -20,7 +21,7 @@ export default function WorkoutDisplay(props) {
         </ Link>
 
            <h5> {props.duration} <p> {props.date} </p> </h5>
-
+         
            <AddExerciseButton 
                 workout_id={props.id}
                 type="button"

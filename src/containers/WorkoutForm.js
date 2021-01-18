@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addWorkout } from '../actions/workouts' //need to hit reducer, adding to props
 import DatePicker from 'react-date-picker'
+import {
+    BrowserRouter as Router,
+    Link
+  } from "react-router-dom";
 
 class WorkoutForm extends Component {
     //need global and local state so we can have controlled form
@@ -108,7 +112,9 @@ class WorkoutForm extends Component {
                         value={this.state.date}
                     /> */}
                 </p>
+                <Link to={`/workouts`}>
                 <input type="submit" />
+                </Link>
             </form>
         )
     }

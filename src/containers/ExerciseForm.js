@@ -82,7 +82,6 @@ class ExerciseForm extends Component {
                 <br />
                 <h2>Exercise</h2>
                 < br />
-                 <Link to={`/workouts/${workout_id}/exercises`}></Link>
                 <form onSubmit={this.handleOnSubmit}>
                 <p>
                     <input
@@ -124,7 +123,9 @@ class ExerciseForm extends Component {
                         value={this.state.weight}
                     />
                 </p>
+                <Link to={`/workouts/${workout_id}/exercises`}>
                 <input type="submit" />
+                </Link>
             </form>
                 
             </div>
