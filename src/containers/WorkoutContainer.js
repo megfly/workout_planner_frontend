@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { getWorkouts, deleteWorkout } from '../actions/workouts'
 import { addExercise } from '../actions/exercises'
 import WorkoutDisplay from '../components/WorkoutDisplay'
+//import CalendarDisplay from '../components/CalendarDisplay'
 
 class WorkoutContainer extends Component {
   //never arrow fct for performace
@@ -21,6 +22,7 @@ class WorkoutContainer extends Component {
   render() {
  
     const workoutList = this.props.workouts.map((workout, index) => {
+     // debugger 
         return <WorkoutDisplay 
           key={workout.id}
           workout_id={workout.id}
@@ -30,7 +32,7 @@ class WorkoutContainer extends Component {
           date={workout.attributes.date}
           handleDeleteWorkout={this.handleDeleteWorkout}
         />
-    })
+    }) 
 
     return (
       <div className="Workouts">
