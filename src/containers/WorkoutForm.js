@@ -6,6 +6,7 @@ import {
     BrowserRouter as Router,
     Link
   } from "react-router-dom";
+  import { Button } from 'react-bootstrap';
 
 class WorkoutForm extends Component {
     //need global and local state so we can have controlled form
@@ -77,7 +78,12 @@ class WorkoutForm extends Component {
         return (
             <form onSubmit={this.handleOnSubmit}>
                  <br />
-                 <h2>Workout</h2>
+                 <h2>New Workout!</h2>
+                 <Link to={`/workouts`}>
+                     <Button>Back</Button>
+                 </Link>
+                 <br />
+                 <br />
                 <p>
                     <input
                         type="text"
@@ -112,9 +118,7 @@ class WorkoutForm extends Component {
                         value={this.state.date}
                     /> */}
                 </p>
-                <Link to={`/workouts`}>
                 <input type="submit" />
-                </Link>
             </form>
         )
     }
