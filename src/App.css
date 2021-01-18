@@ -41,15 +41,13 @@
   }
 }
 
-.react-calendar {
+.calendar {
+  align-items: center;
+  justify-content: center;
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-/* .react-calendar__month-view__weekdays {
-  color: gray;
-} */
-
-/* .react-calendar__navigation button {
-  font-size: 1em;
-} */
