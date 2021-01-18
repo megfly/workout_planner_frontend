@@ -6,9 +6,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar'
 import WorkoutContainer from './containers/WorkoutContainer'
 import WorkoutForm from './containers/WorkoutForm';
-import CalendarDisplay from './components/CalendarDisplay'
 import ExerciseContainer from './containers/ExerciseContainer';
 import ExerciseForm from './containers/ExerciseForm';
+import CalendarContainer from './containers/CalendarContainer';
 //import WorkoutExercisesContainer from './containers/WorkoutExercisesContainer';
 //import WorkoutExerciseDisplay from './components/WorkoutExerciseDisplay';
 
@@ -23,7 +23,7 @@ class App extends Component {
           <NavBar />
         </header>
           <Switch>
-    <Route exact path="/" component={CalendarDisplay} />
+    <Route exact path="/" component={CalendarContainer} />
     <Route exact path="/workouts" component={WorkoutContainer} />
     <Route exact path="/exercises" component={ExerciseContainer} />
     <Route exact path="/workouts/new" component={WorkoutForm} />
