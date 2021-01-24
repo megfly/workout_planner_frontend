@@ -7,6 +7,7 @@ import {
     Link
   } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
+import Incrementer from './Incrementer';
 
 export default function WorkoutDisplay(props) {
 //debugger 
@@ -35,6 +36,8 @@ export default function WorkoutDisplay(props) {
                 handleDeleteWorkout={props.handleDeleteWorkout}
                 //onClick={props.handleDeleteWorkout}
                 />
+
+            <Incrementer />
 
             </ul>
         </div>
