@@ -12,9 +12,9 @@ import React, { Component } from 'react'
           //originally had this.state and it returned object object 
           //because it was the whole state
           let increment = this.state.count + 1
-          console.log(increment)
+         // console.log(increment)
           
-          console.log("this is the event", event.target.value)
+          //console.log("this is the event", event.target.value)
           //set the state so its the new count
           this.setState({
               count: increment
