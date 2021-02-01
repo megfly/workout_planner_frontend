@@ -10,8 +10,7 @@ import Card from 'react-bootstrap/Card'
 import Incrementer from './Incrementer';
 
 export default function WorkoutDisplay(props) {
-//debugger 
-//console.log("props is", props)
+
     return ( 
 
         <div className="workout-display">
@@ -34,7 +33,6 @@ export default function WorkoutDisplay(props) {
                 type="button"
                 id={props.id}
                 handleDeleteWorkout={props.handleDeleteWorkout}
-                //onClick={props.handleDeleteWorkout}
                 />
 
             <Incrementer />

@@ -30,7 +30,6 @@ class WorkoutForm extends Component {
     // }
 
     handleTitleInputChange = (event) => {
-       // console.log(event.target.value)
   
         this.setState({
             title: event.target.value
@@ -38,7 +37,6 @@ class WorkoutForm extends Component {
     }
 
     handleDurationInputChange = (event) => {
-        //console.log(event.target.value)
   
         this.setState({
             duration: event.target.value
@@ -46,8 +44,6 @@ class WorkoutForm extends Component {
     }
 
     handleDateInputChange = (event) => {
-        //debugger
-        //console.log(event)
   
         this.setState({
             date: event
@@ -74,7 +70,6 @@ class WorkoutForm extends Component {
       }
 
     render() {
-      //  console.log("form", this.state)
         return (
             <form onSubmit={this.handleOnSubmit}>
                  <br />
@@ -109,14 +104,6 @@ class WorkoutForm extends Component {
                     onChange={this.handleDateInputChange}
                     value={this.state.date}
                     />
-                    {/* <input 
-                        type="text"
-                        id="workout-date"
-                        name="workout-date"
-                        placeholder="Workout Date..."
-                        onChange={this.handleDateInputChange}
-                        value={this.state.date}
-                    /> */}
                 </p>
                 <input type="submit" />
             </form>
@@ -128,3 +115,5 @@ export default connect(null, { addWorkout })(WorkoutForm)
 
 //mapsttate to props pull something from state
 //null skipping mapstatetoprops
+
+//The connect() function connects a React component to a Redux store.

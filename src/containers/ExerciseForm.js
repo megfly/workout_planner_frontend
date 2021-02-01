@@ -16,9 +16,6 @@ class ExerciseForm extends Component {
         reps: "",
         weight: "",
     } 
-    ////////////////////////////////////
-    ////////////////////////////////////
-    ////////////////////////////////////handle on submit post request 500 error
 
     handleNameChange = (event) => {
         this.setState({
@@ -45,7 +42,6 @@ class ExerciseForm extends Component {
     }
 
     handleOnSubmit = (event) => {
-       // debugger
         event.preventDefault();
 
         const workout_id = this.props.match.params.id 
@@ -56,7 +52,6 @@ class ExerciseForm extends Component {
             reps: this.state.reps,
             weight: this.state.weight,
         }
-      //  debugger
         //addExercise needs information... go into props and pull function and give it the
         this.props.addExercise(exercise, workout_id)
 
@@ -67,14 +62,10 @@ class ExerciseForm extends Component {
             reps: "",
             weight: "",
         })
-        //console.log("handleonsumb", this.state)
-      //  console.log(workout_id)
       }
 
 
     render() {
-       // console.log("THIS ONE IS EXERCUSE FORM", this.state)
-     // debugger
      
      const workout_id = this.props.match.params.id 
         return (
@@ -136,3 +127,5 @@ class ExerciseForm extends Component {
 }
 
 export default connect(null, { addExercise })(ExerciseForm)
+
+//The connect() function connects a React component to a Redux store.

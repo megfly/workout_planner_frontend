@@ -73,18 +73,16 @@ toggleState = () => {
 
   render() {
 //`render()` determines what gets displayed, based on props and state
-
-// return and render are different. render is a method of react. 
-//return is just pure javascript for returning output. 
+// render is a lifecycle method of react. return is just pure javascript for returning output. 
  
+    //when the page is rendered/displayed we will have access to:
     let workouts = this.props.workouts 
-    let workoutsUsable = this.sortWorkouts(workouts)
+    let sortedworkouts = this.sortWorkouts(workouts)
  
     return (
       <div className="Workouts">
-          {/* {workoutList} */}
           
-            {workoutsUsable.map((workout, i) => 
+            {sortedworkouts.map((workout, i) => 
               <WorkoutDisplay 
                   key={workout.id}
                   workout_id={workout.id}
@@ -97,8 +95,13 @@ toggleState = () => {
             )}
         
           <button
+            //this syntax in class  comp ensures 'this' is bound within handleClick
+            //The bind() method creates a new function that, when called, 
+            //has its this keyword set to the provided value
             onClick={this.toggleState}
-            // onClick={() => this.toggleState()}
+
+            // If you aren’t using class fields syntax, you can use an arrow function in the 
+            //callback: onClick={() => this.toggleState()} 
           >
             Sort!
           </button>
@@ -106,10 +109,8 @@ toggleState = () => {
     )
    }
 }
-//shop at teh state store and 
-//structure what our props look like
+//shop at teh state store and structure what our props look like
 const mapStateToProps = state => {
-    // debugger 
   return {
     workouts: state.workoutReducer.workouts, //found in reducer
     loading: state.workoutReducer.loading,
@@ -119,7 +120,9 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { getWorkouts, deleteWorkout, addExercise })(WorkoutContainer) //connecting a comp gives dispatch
-//addExercise
 
 //commonly see React component methods defined with arrow functions. This is because we often want to access the this keyword within 
 //the methods themselves. By using an arrow function, we avoid creating a new scope with a different value of this
+
+//The connect() function connects a React component to a Redux store.
+//mapStateToProps is used for selecting the part of the data from the store that the connected component needs.
