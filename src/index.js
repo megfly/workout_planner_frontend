@@ -9,28 +9,17 @@ import { createStore, applyMiddleware } from 'redux' //store and thunk middlewar
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
-import ExerciseForm from './containers/ExerciseForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import Calendar from 'react-calendar';
-// import CalendarDisplay from './components/CalendarDisplay'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
   // <React.StrictMode>
-  <Router>
+  //The <Provider /> makes the Redux store available to any nested components that have 
+  //been wrapped in the connect() function.
   <Provider store={store}>
     <App />
   </Provider>,
-  </Router>,
   // </React.StrictMode>,
   document.getElementById('root')
 );
