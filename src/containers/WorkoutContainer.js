@@ -97,8 +97,8 @@ toggleState = () => {
             )}
         
           <button
-            // onClick={this.toggleState}
-            onClick={() => this.toggleState()}
+            onClick={this.toggleState}
+            // onClick={() => this.toggleState()}
           >
             Sort!
           </button>
@@ -120,3 +120,6 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, { getWorkouts, deleteWorkout, addExercise })(WorkoutContainer) //connecting a comp gives dispatch
 //addExercise
+
+//commonly see React component methods defined with arrow functions. This is because we often want to access the this keyword within 
+//the methods themselves. By using an arrow function, we avoid creating a new scope with a different value of this
