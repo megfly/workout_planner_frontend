@@ -24,6 +24,8 @@ class WorkoutContainer extends Component {
   }
 
  compareWorkouts = () => {
+   //3
+   
   return function (a, b) {
 
 //the parameters (a and b)are two elements from the array
@@ -46,6 +48,8 @@ class WorkoutContainer extends Component {
 }}
  
 sortWorkouts() {
+  //2
+  
   if (this.state.sorted === true){
       //`Array.prototype.sort()` is destructive..... want to use spread operator to make shallow copy of workouts array and then sorting it
     let workoutsCopy = [...this.props.workouts];
@@ -58,6 +62,8 @@ sortWorkouts() {
 
 
 toggleState = () => {
+  //1
+  
     //boolean for its either in order or not true/false
     if (this.state.sorted) {
       this.setState({
@@ -75,9 +81,10 @@ toggleState = () => {
 //`render()` determines what gets displayed, based on props and state
 // render is a lifecycle method of react. return is just pure javascript for returning output. 
  
-    //when the page is rendered/displayed we will have access to:
+    //when the page is rendered/displayed we have:
     let workouts = this.props.workouts 
     let sortedworkouts = this.sortWorkouts(workouts)
+    
  
     return (
       <div className="Workouts">
@@ -119,10 +126,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getWorkouts, deleteWorkout, addExercise })(WorkoutContainer) //connecting a comp gives dispatch
-
-//commonly see React component methods defined with arrow functions. This is because we often want to access the this keyword within 
-//the methods themselves. By using an arrow function, we avoid creating a new scope with a different value of this
-
-//The connect() function connects a React component to a Redux store.
-//mapStateToProps is used for selecting the part of the data from the store that the connected component needs.
+export default connect(mapStateToProps, { getWorkouts, deleteWorkout, addExercise })(WorkoutContainer) 
