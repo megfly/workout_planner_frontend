@@ -1,7 +1,5 @@
-export default (state = {workouts: [], loading: false}, action) => { //always must return state
+export default (state = {workouts: [], loading: false}, action) => { 
     //Reducers are pure functions that take the previous state and an action, and return the next state. 
-    //A reducer is a function that receives the current state and an action object, decides how to update
-    // the state if necessary, and returns the new state
     switch(action.type){
         case("LOADING_WORKOUTS"): 
             return {...state, loading: true}
