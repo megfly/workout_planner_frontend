@@ -1,11 +1,10 @@
-//action object creator function
-//An action creator is a function that creates and returns an action object.
-
-//thunk needed when working with async code
+//action object creator functio
 
 export const getWorkouts = () => { 
-    return dispatch => { //returns an arrow function
-        dispatch({type: "LOADING_WORKOUTS"}) //dispatches an action //(takes in an action and going to make a copy of that object and pass it off)
+    //console.log("hello from getworkouts")
+    return dispatch => { 
+       // console.log("hello from action function")
+        dispatch({type: "LOADING_WORKOUTS"}) 
         fetch("http://localhost:3001/api/v1/workouts") 
         .then(res => res.json()) 
         .then(workouts => {
@@ -13,8 +12,6 @@ export const getWorkouts = () => {
             })    
     }
 }
-
-//The only way to update the state is to call store.dispatch() and pass in an action object. 
 
 //passing it workout info
 export const addWorkout = (workout) => { 
