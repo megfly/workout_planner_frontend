@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { getWorkouts, deleteWorkout } from '../actions/workouts'
 import { addExercise } from '../actions/exercises'
 import WorkoutDisplay from '../components/WorkoutDisplay'
+//import { dispatch } from 'redux'
 //import CalendarDisplay from '../components/CalendarDisplay'
 
 class WorkoutContainer extends Component {
@@ -12,10 +13,12 @@ class WorkoutContainer extends Component {
   //assigning local state
   state = {
     sorted: false, 
+    searchinput: ''
     // workouts: []
   }
 
   componentDidMount(){
+      // store.dispatch(getWorkouts())
       this.props.getWorkouts()
   }
 
@@ -49,21 +52,19 @@ class WorkoutContainer extends Component {
  
 sortWorkouts() {
   //2
-  
   if (this.state.sorted === true){
-      //`Array.prototype.sort()` is destructive..... want to use spread operator to make shallow copy of workouts array and then sorting it
-    let workoutsCopy = [...this.props.workouts];
+      //`Array.prototype.sort()` is destructive..... want to use spread operator to make copy of workouts array and then sorting it
+    let workoutsCopy = [...this.filterWorkouts()];
     workoutsCopy.sort(this.compareWorkouts())
     return workoutsCopy;
   }else{
-    return this.props.workouts 
+    return this.filterWorkouts()
   }
 }
 
 
 toggleState = () => {
   //1
-  
     //boolean for its either in order or not true/false
     if (this.state.sorted) {
       this.setState({
@@ -77,31 +78,51 @@ toggleState = () => {
   }
 }
 
+handleSearch = (event) => {
+// debugger
+
+  this.setState({
+    searchinput: event.target.value
+  })
+}
+
+filterWorkouts = () => {
+  // debugger 
+  console.log("searchworkouts")
+  
+  if (this.state.searchinput !== '') {
+    
+    return this.props.workouts.filter(wo => { 
+      return wo.attributes.title.toUpperCase().includes(this.state.searchinput.toUpperCase())
+    })
+
+  } else {
+    return this.props.workouts
+  }
+}
+
   render() {
 //`render()` determines what gets displayed, based on props and state
 // render is a lifecycle method of react. return is just pure javascript for returning output. 
  
-    //when the page is rendered/displayed we have:
-    let workouts = this.props.workouts 
-    let sortedworkouts = this.sortWorkouts(workouts)
+
     
+    // debugger 
  
     return (
       <div className="Workouts">
-          
-            {sortedworkouts.map((workout, i) => 
-              <WorkoutDisplay 
-                  key={workout.id}
-                  workout_id={workout.id}
-                  id={workout.id}
-                  title={workout.attributes.title}
-                  duration={workout.attributes.duration}
-                  date={workout.attributes.date}
-                  handleDeleteWorkout={this.handleDeleteWorkout}
-                  />
-            )}
-        
-          <button
+
+        <br />
+        <input
+          type="text"
+          name="workout-title"
+          placeholder="Search..."
+          onChange={this.handleSearch} 
+          value={this.state.searchinput}
+          />
+        <br />
+        <br />
+        <button
             //this syntax in class  comp ensures 'this' is bound within handleClick
             //The bind() method creates a new function that, when called, 
             //has its this keyword set to the provided value
@@ -112,6 +133,22 @@ toggleState = () => {
           >
             Sort!
           </button>
+          <br />
+       
+             { this.sortWorkouts().map(wo => {
+               return <WorkoutDisplay 
+                  key={wo.id}
+                  workout_id={wo.id}
+                  id={wo.id}
+                  title={wo.attributes.title}
+                  duration={wo.attributes.duration}
+                  date={wo.attributes.date}
+                  handleDeleteWorkout={this.handleDeleteWorkout}
+                />
+              })
+             
+  }
+            
       </div>   
     )
    }
@@ -121,7 +158,6 @@ const mapStateToProps = state => {
   return {
     workouts: state.workoutReducer.workouts, //found in reducer
     loading: state.workoutReducer.loading,
-    //loading is cuz fetch is async, takes time to get promise of result, so we use loading flag
     //loading flag when we havent got our data yet
   }
 }
