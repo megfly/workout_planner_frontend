@@ -1,7 +1,7 @@
 //action object creator function
 
 export const getExercises = (workout_id) => { 
-    return dispatch => {
+    return (dispatch) => {
         dispatch({type: "LOADING_EXERCISES"})
         fetch(`http://localhost:3001/api/v1/workouts/${workout_id}/exercises`) 
         .then(res => res.json())
@@ -23,7 +23,10 @@ export const addExercise = (exercise, workout_id) => {
                 "Accept": 'application/json'
             }
         })
-        .then(res => res.json())
+        .then((res) => {
+            return res.json()
+        })
+        
         .then(exercise => {
             dispatch({type: "EXERCISE_ADDED", payload: exercise.data}) //payload: workouts.data}
             })    
