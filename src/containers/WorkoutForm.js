@@ -59,7 +59,8 @@ class WorkoutForm extends Component {
             date: this.state.date
         }
         //addworkout needs information... go into props and pull function and give it the
-        this.props.addWorkout(workout)
+        this.props.addWorkout(workout, this.props.history)
+       // this.props.history.push("/workouts")
         //since supressing default behavior we need to claer out the form by updateing dstate
         this.setState({
             title: "",
