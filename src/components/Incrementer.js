@@ -20,6 +20,20 @@ import React, { Component } from 'react'
               count: increment
           })
         }
+
+        handleDecrementer = (event) => {
+
+           
+
+            // We want it to decrement the count IF the count is > 0
+            if (this.state.count > 0) {
+                let decrement = this.state.count - 1
+                this.setState({
+                    count: decrement
+                })
+            }
+            
+        }
     render() {
 
         return (
@@ -32,7 +46,17 @@ import React, { Component } from 'react'
                 >
                     Increment
                 </button>
+
+                <input>
+                </input>
+                
                 Count: {this.state.count}
+
+                <button
+                    onClick={this.handleDecrementer}
+                >
+                    Decrement
+                </button>
 
             </div>
         )
