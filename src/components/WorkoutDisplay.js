@@ -6,10 +6,11 @@ import {
     BrowserRouter as Router,
     Link
   } from "react-router-dom";
-import Card from 'react-bootstrap/Card'
 import Incrementer from './Incrementer';
+import EditWorkoutForm from '../containers/EditWorkoutForm';
 
 export default function WorkoutDisplay(props) {
+    // console.log(props)
 
     return ( 
 
@@ -19,6 +20,14 @@ export default function WorkoutDisplay(props) {
         <Link to={`/workouts/${props.workout_id}/exercises/`}>
            <h4>{props.title}</h4>
         </ Link>
+
+        <Link to={`/workouts/${props.workout_id}/edit/`}>
+            <Button
+                workout_id={props.id}
+                type="button"> 
+                Edit 
+            </Button> 
+        </Link>
 
            <h5> {props.duration} <p> {props.date} </p> </h5>
          
