@@ -13,6 +13,13 @@ export default (state = {workouts: [], loading: false}, action) => {
         case("WORKOUT_ADDED"):
             return {...state, 
                 loading: false,
+                workouts: [action.payload, ...state.workouts]
+            }
+        case("EDITING_WORKOUT"):
+            return {...state, loading: true}
+        case("WORKOUT_EDITED"):
+            return {...state,
+                loading: false,
                 workouts: [...state.workouts, action.payload]
             }
         case("DELETING_WORKOUT"): 
