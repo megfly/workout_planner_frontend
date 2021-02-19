@@ -14,7 +14,7 @@ export const getWorkouts = () => {
 }
 
 //passing it workout info
-export const addWorkout = (workout) => { 
+export const addWorkout = (workout, history) => { 
     return dispatch => {
         dispatch({type: "ADDING_WORKOUT"})
         fetch("http://localhost:3001/api/v1/workouts", {
@@ -28,7 +28,28 @@ export const addWorkout = (workout) => {
         .then(res => res.json())
         .then(workout => {
             dispatch({type: "WORKOUT_ADDED", payload: workout.data}) //payload: workouts.data}
-            })    
+            history.push('/workouts')
+        })    
+    }
+}
+
+//need to pass workout info
+export const editWorkout = (workout, workout_id) => {
+    console.log(workout)
+    return dispatch => {
+        dispatch({type: "EDITING_WORKOUT"})
+        fetch(`http://localhost:3001/api/v1/workouts/${workout_id}`, {
+            method: "PATCH",
+            body: JSON.stringify(workout, workout_id),
+            headers: {
+                'Content-Type': 'application/json',
+                "Accept": 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(workout => {
+            dispatch({type: "WORKOUT_EDITED", payload: workout.data, workout_id})
+        }) 
     }
 }
 
