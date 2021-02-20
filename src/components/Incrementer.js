@@ -12,7 +12,8 @@ import React, { Component } from 'react'
         let increment = this.state.count + parseInt(this.state.input)
         
           this.setState({
-              count: increment
+              count: increment,
+              input: ''
           })
         }
 
@@ -20,23 +21,40 @@ import React, { Component } from 'react'
             let increment = this.state.count + 1 
 
             this.setState({
-                count: increment
+                count: increment,
+                input: ''
             })
         }
     }
 
+
         handleDecrementer = (event) => {
             // We want it to decrement the count IF the count is > 0
+            
            if (this.state.count > 0) {
                //if input is not equal to an empty string
+               
                 if (this.state.input !== '') {
- 
+                     
+                    //so when the count is equal to a number we can decrement it to below zero....
                     let decrement = this.state.count - parseInt(this.state.input)
+
+                        if (decrement <= 0) {
+                            this.setState({
+                                count: 0,
+                                input: ''
+                            })
+                        }
+
+                        else {
+
                     this.setState({
                         count: decrement,
                         input: ''
                     })
                 }
+                
+            }
 
 
                 else {
@@ -89,7 +107,6 @@ import React, { Component } from 'react'
                 >
                     Decrement
                 </button>
-
             </div>
         )
     }
