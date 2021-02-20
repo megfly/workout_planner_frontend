@@ -88,7 +88,7 @@ handleSearch = (event) => {
 
 filterWorkouts = () => {
   // debugger 
-  console.log("searchworkouts")
+  //console.log("searchworkouts")
   
   if (this.state.searchinput !== '') {
     
