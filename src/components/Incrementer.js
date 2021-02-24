@@ -7,7 +7,7 @@ import React, { Component } from 'react'
     } 
 
     handleIncrementer = (event) => {
-        //convert this.state.input to a number.... 
+        //if input is not equal to an empty string 
        if (this.state.input !== '') {
         let increment = this.state.count + parseInt(this.state.input)
         
@@ -18,6 +18,7 @@ import React, { Component } from 'react'
         }
 
         else {
+            //if the input is equal to an empty string
             let increment = this.state.count + 1 
 
             this.setState({
@@ -29,17 +30,19 @@ import React, { Component } from 'react'
 
 
         handleDecrementer = (event) => {
-            // We want it to decrement the count IF the count is > 0
+            // We want it to decrement the count IF the count is greater than 0
             
            if (this.state.count > 0) {
-               //if input is not equal to an empty string
+               
+            //if input is not empty
                
                 if (this.state.input !== '') {
                      
-                    //so when the count is equal to a number we can decrement it to below zero....
+                    //counter minus the input box number
                     let decrement = this.state.count - parseInt(this.state.input)
 
                         if (decrement <= 0) {
+                            //if it is less than or equal to zero, set the count to zero
                             this.setState({
                                 count: 0,
                                 input: ''
@@ -47,16 +50,15 @@ import React, { Component } from 'react'
                         }
 
                         else {
-
-                    this.setState({
-                        count: decrement,
-                        input: ''
-                    })
+                            this.setState({
+                                //else put the number
+                                count: decrement,
+                                input: ''
+                            })
+                        }
                 }
-                
-            }
 
-
+                // if this.state.input is an empty string.... then when w click button it minuses one
                 else {
                     let decrement = this.state.count - 1
 
