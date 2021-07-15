@@ -18,8 +18,8 @@ console.log("ex display", props)
             <b> Sets:</b> {props.sets} <br />
             <b> Reps:</b> {props.reps} <br />
             <b> Weight:</b> {props.weight} <br />
-            <Link to={`/workouts`}> <Button>Workouts</Button></Link>
-            <Link to={`/workouts/${props.workout_id}/exercises/new`}> <Button>Exercise Form</Button></Link>
+            {/* <Link to={`/workouts`}> <Button>Workouts</Button></Link> */}
+            {/* <Link to={`/workouts/${props.workout_id}/exercises/new`}> <Button>Exercise Form</Button></Link> */}
 
             {/* <DeleteExerciseButton 
                 workout_id={props.workout_id}
