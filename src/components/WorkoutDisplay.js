@@ -44,7 +44,7 @@ export default function WorkoutDisplay(props) {
                 handleDeleteWorkout={props.handleDeleteWorkout}
                 />
 
-            <Incrementer />
+            {/* <Incrementer /> */}
 
             </ul>
         </div>
