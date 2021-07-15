@@ -120,6 +120,8 @@ filterWorkouts = () => {
           onChange={this.handleSearch} 
           value={this.state.searchinput}
           />
+          <br /><br />
+        {/* <br />
         <br />
         <br />
         <button
@@ -133,7 +135,9 @@ filterWorkouts = () => {
           >
             Sort!
           </button>
+          <br /> 
           <br />
+          <br /> */}
        
              { this.sortWorkouts().map(wo => {
                return <WorkoutDisplay 
